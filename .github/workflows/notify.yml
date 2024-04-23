@@ -1,6 +1,6 @@
 name: Notify Microsoft 365
 
-on: [push] 
+on: push
 
 jobs:
   notify:
