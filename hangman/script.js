@@ -1,8 +1,8 @@
-const wd = document.querySelector(".word-display"); // 단어 표시 영역
-const gt = document.querySelector(".guesses-text b"); // 추측 횟수 표시 영역
+const wd = document.querySelector(".display"); // 단어 표시 영역
+const gt = document.querySelector(".guesses b"); // 추측 횟수 표시 영역
 const kd = document.querySelector(".keyboard"); // 키보드 영역
 const hi = document.querySelector(".hangman-box img"); // 매달린 사람 이미지
-const gm = document.querySelector(".game-modal"); // 게임 종료 모달
+const gm = document.querySelector(".modal"); // 게임 종료 모달
 const pb = gm.querySelector("button"); // "Play Again" 버튼
 
 // 단어 목록
@@ -27,7 +27,7 @@ const rg = () => {
     hi.src = "img/hangman-0.jpg"; // 초기 이미지
     gt.innerText = `${wc} / ${mg}`; // 추측 횟수 표시
     // 현재 단어를 글자 하나씩 나눠서 단어 표시 영역에 추가
-    wd.innerHTML = cw.split("").map(() => `<li class="letter" style="color:white;text-shadow: 5px 5px #2D63A7;"></li>`).join("");
+    wd.innerHTML = cw.split("").map(() => `<li class="letter" style="color:white;text-shadow: 5px 5px #2D63A7;  font-size: 6rem;"></li>`).join("");
     // 모든 키보드 버튼 활성화
     kd.querySelectorAll("button").forEach(btn => btn.disabled = false);
     // 모달 창 숨기기
