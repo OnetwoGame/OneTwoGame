@@ -12,9 +12,12 @@ class TicTacToe {
     this.resultDisplay = document.querySelector(".result");
     this.info = document.querySelector(".info");
 
+    // board cell을 클릭했을 때
     this.cells.forEach((cell) => {
       cell.addEventListener("click", this.cellClickHandler.bind(this));
     });
+
+    //게임 시작, 게임 다시 하기 버튼
     this.startButtons.forEach((btn) => {
       btn.addEventListener("click", this.startNewGame.bind(this));
     });
@@ -23,6 +26,7 @@ class TicTacToe {
   }
 
   init() {
+    // x부터 시작
     this.player = "X";
     this.board = Array.from({ length: 3 }, () => {
       return Array.from({ length: 3 }, () => null);
@@ -33,10 +37,11 @@ class TicTacToe {
 
   startNewGame() {
     console.log("새게임");
-    this.coverContainer.classList.add("hide");
-    this.resultDisplay.classList.add("hide");
+    // this.coverContainer.classList.add("hide");
+    // this.resultDisplay.classList.add("hide");
     this.gameContainer.classList.remove("hide");
-    this.info.classList.remove("blur");
+    console.log("hide 지우기?");
+    // this.info.classList.remove("blur");
     this.init();
   }
 
@@ -138,6 +143,7 @@ class TicTacToe {
     return false;
   }
 
+  // x와 y가 입력 -> 이미지로 대체
   markCell({ row, col, el }) {
     el.textContent = this.player;
     this.board[row][col] = this.player;

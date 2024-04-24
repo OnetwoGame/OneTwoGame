@@ -10,16 +10,34 @@
     <div class="overview">
       <div class="background">
         <div class="switch">
-          <div class="board">
-            <div class="board__cell" data-row="0" data-col="0"></div>
-            <div class="board__cell" data-row="0" data-col="1"></div>
-            <div class="board__cell" data-row="0" data-col="2"></div>
-            <div class="board__cell" data-row="1" data-col="0"></div>
-            <div class="board__cell" data-row="1" data-col="1"></div>
-            <div class="board__cell" data-row="1" data-col="2"></div>
-            <div class="board__cell" data-row="2" data-col="0"></div>
-            <div class="board__cell" data-row="2" data-col="1"></div>
-            <div class="board__cell" data-row="2" data-col="2"></div>
+          <!-- feat_3 game start button -->
+          <button class="btn-start" type="button">
+            <img
+              src="./img/button.png"
+              alt="game start image"
+              class="game-button1"
+            />
+          </button>
+          <img src="./img/hanastar1.png" alt="payer1" class="player1-full" />
+
+          <div class="container game hide">
+            <div class="board">
+              <div class="board__cell" data-row="0" data-col="0"></div>
+              <div class="board__cell" data-row="0" data-col="1"></div>
+              <div class="board__cell" data-row="0" data-col="2"></div>
+              <div class="board__cell" data-row="1" data-col="0"></div>
+              <div class="board__cell" data-row="1" data-col="1"></div>
+              <div class="board__cell" data-row="1" data-col="2"></div>
+              <div class="board__cell" data-row="2" data-col="0"></div>
+              <div class="board__cell" data-row="2" data-col="1"></div>
+              <div class="board__cell" data-row="2" data-col="2"></div>
+            </div>
+          </div>
+
+          <img src="./img/hanastar2.png" alt="player2" class="player2-full" />
+          <div class="result hide">
+            <p class="result-text"></p>
+            <button class="btn-start" type="button">다시 하기</button>
           </div>
         </div>
       </div>
