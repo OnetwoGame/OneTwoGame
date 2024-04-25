@@ -38,7 +38,7 @@ class TicTacToe {
   startNewGame() {
     console.log("새게임");
     // this.coverContainer.classList.add("hide");
-    // this.resultDisplay.classList.add("hide");
+    this.resultDisplay.classList.add("hide");
     this.gameContainer.classList.remove("hide");
     console.log("hide 지우기?");
     // this.info.classList.remove("blur");
@@ -48,7 +48,7 @@ class TicTacToe {
   finishGame() {
     this.playing = false;
     // this.coverContainer.classList.remove("hide");
-    // this.gameContainer.classList.add("hide");
+    this.gameContainer.classList.add("hide");
   }
 
   cellClickHandler(e) {
