@@ -26,32 +26,33 @@
         <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
+        <script src="./js/sound.js"></script>
         <script src="./js/const.js"></script>
         <script src="./js/app.js"></script>
         <div class="movewrap">
             <div class="sub">
                 <div class="logo">
-                    <img src="./img/logo.png" />
+                    <img src="./assets/logo.png" />
                 </div>
                 <div class="button">
                     <span data-tooltip="Please choose one character">
-                        <img id="hangman" src="./img/행맨버튼.png" onclick="validateHangman()" />
+                        <img id="hangman" src="./assets/행맨버튼.png" onclick="validateHangman()" />
                     </span>
                     <span data-tooltip="Please choose two characters">
-                        <img id="tictactoe" src="./img/틱택토버튼.png" onclick="validateTicTacToe()" />
+                        <img id="tictactoe" src="./assets/틱택토버튼.png" onclick="validateTicTacToe()" />
                     </span>
                 </div>
             </div>
             <div class="characters">
                 <ul>
                     <li>
-                        <img id="starMan" class="character" src="./img/별돌이.png" onclick="activeToggle(starMan)" />
+                        <img id="starMan" class="character" src="./assets/별돌이.png" onclick="activeToggle(starMan)" />
                     </li>
                     <li>
                         <img
                             id="starFriend"
                             class="character"
-                            src="./img/별벗.png"
+                            src="./assets/별벗.png"
                             onclick="activeToggle(starFriend)"
                         />
                     </li>
@@ -59,18 +60,23 @@
                         <img
                             id="starBunch"
                             class="character"
-                            src="./img/별송이.png"
+                            src="./assets/별송이.png"
                             onclick="activeToggle(starBunch)"
                         />
                     </li>
                     <li>
-                        <img id="starNuri" class="character" src="./img/별누리.png" onclick="activeToggle(starNuri)" />
+                        <img
+                            id="starNuri"
+                            class="character"
+                            src="./assets/별누리.png"
+                            onclick="activeToggle(starNuri)"
+                        />
                     </li>
                     <li>
                         <img
                             id="starGeneral"
                             class="character"
-                            src="./img/별장군.png"
+                            src="./assets/별장군.png"
                             onclick="activeToggle(starGeneral)"
                         />
                     </li>
@@ -78,21 +84,21 @@
                         <img
                             id="starSpring"
                             class="character"
-                            src="./img/별봄이.png"
+                            src="./assets/별봄이.png"
                             onclick="activeToggle(starSpring)"
                         />
                     </li>
                     <li>
-                        <img id="starPro" class="character" src="./img/별프로.png" onclick="activeToggle(starPro)" />
+                        <img id="starPro" class="character" src="./assets/별프로.png" onclick="activeToggle(starPro)" />
                     </li>
                     <li>
-                        <img id="starNim" class="character" src="./img/별님이.png" onclick="activeToggle(starNim)" />
+                        <img id="starNim" class="character" src="./assets/별님이.png" onclick="activeToggle(starNim)" />
                     </li>
                     <li>
                         <img
                             id="starWoong"
                             class="character"
-                            src="./img/별웅이.png"
+                            src="./assets/별웅이.png"
                             onclick="activeToggle(starWoong)"
                         />
                     </li>
