@@ -4,6 +4,7 @@ const kd = document.querySelector(".keyboard"); // 키보드 영역
 const hi = document.querySelector(".hangman-box img"); // 매달린 사람 이미지
 const gm = document.querySelector(".modal"); // 게임 종료 모달
 const pb = gm.querySelector("button"); // "Play Again" 버튼
+const victory = document.querySelector(".new"); 
 
 // 단어 목록
 const wl = [
@@ -46,7 +47,30 @@ const gr = () => {
 const go = (iv) => {
     // 게임 종료 후 모달에 관련 정보 표시
     const mt = iv ? `You found the word:` : 'The correct word was:';
-    // gm.querySelector("img").src = `images/${iv ? 'victory' : 'lost'}.gif`; // 모달 이미지 변경
+    if (iv) {
+        const victoryImg = document.createElement("img");
+        victoryImg.src = "img/victory.png";
+        victoryImg.className = "victory-image";
+        document.body.appendChild(victoryImg);
+
+        const hangmanImg = document.querySelector(".hangman-box img");
+        hangmanImg.remove(); // hangman 이미지 삭제
+
+        const nulll=document.querySelector('.game');
+        nulll.remove();
+        
+        setTimeout(() => {
+            victoryImg.remove(); // 이미지를 5초 후에 삭제
+            showGameOverModal(iv); // 모달을 표시하는 함수 호출
+        }, 3000); // 5초 후에 실행
+    } else {
+        showGameOverModal({iv,mt}); // 모달을 표시하는 함수 호출
+    }
+}
+
+
+// 게임 종료 후 모달 표시 함수
+const showGameOverModal = ({iv,mt}) => {
     gm.querySelector("h4").innerText = iv ? 'Congrats!' : 'Game Over!'; // 모달 제목 변경
     gm.querySelector("p").innerHTML = `${mt} <b>${cw}</b>`; // 모달 텍스트 변경
     console.log("모달로 들어옴");

@@ -1,4 +1,4 @@
-/* Importing Google font - Jersey 15 */
+
 @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 
 .jersey-10-regular {
@@ -7,8 +7,7 @@
     font-style: normal;
   }
 
-  
-/* Global styles */
+
 * {
     box-sizing: border-box;
     font-family: 'Jersey 10', cursive;
@@ -117,7 +116,7 @@ body {
 }
 
 .game {
-   margin-top: 45%;
+   margin-top: 30%;
 }
 
 .game h4 {
@@ -198,9 +197,9 @@ body {
     margin-bottom: 20px;
 }
 
-.modal img[src="images/victory.gif"] {
+/* .modal img[src="images/victory.gif"] {
     margin-left: -10px;
-}
+} */
 
 .modal h4 {
     font-size: 1.53rem;
@@ -216,6 +215,10 @@ body {
     color: #5E63BA;
     font-weight: 600;
 }
+/* .modal img[src="img/victory.png"] {
+    margin-left: -10px;
+    animation: starAnimation 1s ease-in-out forwards; /* 애니메이션 적용 */
+} */
 
 .modal button {
     padding: 12px 23px;
@@ -259,5 +262,39 @@ body {
 
     .modal button {
         padding: 10px 18px;
+    }
+}
+
+.victory-image {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    z-index: 9999;
+    width: 230px;
+    height: 330px;
+    animation: moveRightAndShrink 2s ease-in-out forwards; /* 애니메이션 적용 */
+}
+
+@keyframes moveRightAndShrink {
+    0% {
+        left: 0; /* 초기 위치: 왼쪽 끝 */
+        transform: translate(0, -50%) scale(1); /* 초기 크기: 원래 크기 */
+    }
+    50% {
+        left: 30%; /* 중간 위치: 오른쪽 중간 */
+        transform: translate(-50%, -50%) scale(1.2); /* 중간 크기: 1.2배 확대 */
+    }
+
+    70% {
+        left: 60%; /* 최종 위치: 오른쪽 끝 */
+        
+        transform: translate(-90%, -30%) scale(0.8); /* 최종 크기: 반으로 축소 */
+    }
+
+    100% {
+        left: 59%; /* 최종 위치: 오른쪽 끝 */
+        
+        transform: translate(-100%, 18%) scale(0.3); /* 최종 크기: 반으로 축소 */
     }
 }
