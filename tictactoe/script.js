@@ -14,8 +14,8 @@ class TicTacToe {
     this.playerDisplay = document.querySelector(".player__id");
     this.resultDisplay = document.querySelector(".result");
     this.info = document.querySelector(".info");
-    this.xImg = document.querySelector("#x-img");
-    this.oImg = document.querySelector("#o-img");
+    this.xImg = document.getElementById("x-img");
+    this.oImg = document.getElementById("o-img");
 
     // board cell을 클릭했을 때
     this.cells.forEach((cell) => {
@@ -46,12 +46,6 @@ class TicTacToe {
     this.gameContainer.classList.remove("hide");
     this.init();
     document.querySelector(".player2-full").classList.add("opacity");
-  }
-  hidePlayerImages() {
-    const xImg = document.getElementById("x-img");
-    const oImg = document.getElementById("o-img");
-    xImg.style.display = "none";
-    oImg.style.display = "none";
   }
   hidePlayerImages() {
     const xImg = document.getElementById("x-img");
@@ -173,17 +167,11 @@ class TicTacToe {
   markCell({ row, col, el }) {
     if (this.playing) {
       const img = this.player === "X" ? this.xImg : this.oImg;
-      el.appendChild(img.cloneNode(true));
+      const cloneImg = img.cloneNode(true);
+      el.appendChild(cloneImg);
+      cloneImg.style.display = "block";
+
       this.board[row][col] = this.player;
-
-      // 이미지를 클릭할 때만 해당 셀에 이미지가 나타나도록 설정
-      img.addEventListener("click", () => {
-        img.style.display = "block"; // 클릭 시 이미지 표시
-        el.removeEventListener("click", this.cellClickHandler); // 클릭 이벤트 제거
-      });
-
-      // 이미지를 보이도록 설정
-      img.style.display = "block";
     }
   }
 }
