@@ -15,6 +15,10 @@ const tictactoeActiveCnt = 2;
 
 const hangmanCntErrorMessage = '선택된 캐릭터의 수가 1개가 아닙니다.';
 const tictactoeCntErrorMessage = '선택된 캐릭터의 수가 2개가 아닙니다.';
+const failMusicMessage = '음악 재생에 실패했습니다:';
 
 const mainToHangmanURL = './hangman/index.html';
 const mainToTictactoeURL = './tictactoe/index.html';
+const mainMusicURL = './assets/main_bgm.mp3';
+
+const keyDown = 'keydown';

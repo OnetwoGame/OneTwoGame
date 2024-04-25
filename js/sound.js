@@ -1,6 +1,6 @@
 function activeSound() {
     console.log('check');
-    const audio = new Audio('./assets/main_bgm.mp3');
+    const audio = new Audio(mainMusicURL);
     audio.muted = true;
     audio
         .play()
@@ -8,8 +8,8 @@ function activeSound() {
             audio.muted = false;
         })
         .catch((error) => {
-            console.error('음악 재생에 실패했습니다:', error);
+            console.error(failMusicMessage, error);
         });
 }
 
-window.addEventListener('keydown', activeSound);
+window.addEventListener(keyDown, activeSound);
