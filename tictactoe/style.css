@@ -158,3 +158,32 @@ body {
   justify-content: flex-start;
   align-items: center;
 }
+
+/* 기본 이미지 스타일 */
+.image {
+  /* 투명도: 100% */
+  opacity: 1;
+  /* 트랜지션 효과를 부드럽게 하기 위해 추가 */
+  transition: opacity 0.3s ease;
+}
+
+/* player1-full 클래스가 추가된 이미지의 스타일 */
+.player1-full {
+  /* 투명도: 100% */
+  opacity: 1;
+}
+/* player1-full 클래스가 추가된 이미지의 스타일 */
+.player1-full.opacity {
+  /* 투명도: 100% */
+  opacity: 0.5;
+}
+
+/* player2-full 클래스가 추가된 이미지의 스타일 */
+.player2-full {
+  /* 투명도: 50% */
+  opacity: 1;
+}
+.player2-full.opacity {
+  /* 투명도: 100% */
+  opacity: 0.5;
+}

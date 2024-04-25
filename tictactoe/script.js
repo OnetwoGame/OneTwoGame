@@ -2,10 +2,13 @@ class TicTacToe {
   constructor() {
     this.player;
     this.board;
+    //게임 플레이 여부
     this.playing = false;
-
+    //각 칸
     this.cells = document.querySelectorAll(".board__cell");
+    // 시작 버튼
     this.startButtons = document.querySelectorAll(".btn-start");
+    //# 안쓰는 코드
     this.coverContainer = document.querySelector(".cover");
     this.gameContainer = document.querySelector(".game");
     this.playerDisplay = document.querySelector(".player__id");
@@ -40,9 +43,9 @@ class TicTacToe {
     // this.coverContainer.classList.add("hide");
     this.resultDisplay.classList.add("hide");
     this.gameContainer.classList.remove("hide");
-    console.log("hide 지우기?");
     // this.info.classList.remove("blur");
     this.init();
+    document.querySelector(".player2-full").classList.add("opacity");
   }
 
   finishGame() {
@@ -75,10 +78,22 @@ class TicTacToe {
       }
     }
   }
-
+  // 턴 변경 => 플레이어 변경
   changePlayer() {
     this.player = this.player === "X" ? "O" : "X";
-    this.playerDisplay.textContent = this.player;
+    // this.playerDisplay.textContent = this.player;
+    // character 투명도 처리
+    if (this.player === "X") {
+      // 'X'인 경우
+      // 'player1-full' 클래스를 가진 이미지는 100% 투명도로 유지하고, 'player2-full' 클래스를 가진 이미지는 50% 투명도로 변경
+      document.querySelector(".player2-full").classList.add("opacity");
+      document.querySelector(".player1-full").classList.remove("opacity");
+    } else {
+      // 'O'인 경우
+      // 'player2-full' 클래스를 가진 이미지는 100% 투명도로 유지하고, 'player1-full' 클래스를 가진 이미지는 50% 투명도로 변경
+      document.querySelector(".player1-full").classList.add("opacity");
+      document.querySelector(".player2-full").classList.remove("opacity");
+    }
   }
 
   displayText(text) {
