@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 2px solid;
-}
+} */
 html,
 body {
   margin: 0;
@@ -58,24 +58,24 @@ body {
 }
 /* 작은 화면에서 switch 잘림 */
 .switch {
-  background-image: url("./img/switch.png");
+  /* background-image: url("./img/switch.png");
   background-size: cover;
+  background-position: center; */
+  position: absolute;
   z-index: 100;
-  width: 80%;
-  height: 80%;
-  /* height: auto; */
+  width: 1150px;
+  height: 500px;
+  position: absolute;
   top: 13%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
 }
 .game-button1 {
   position: absolute;
-  top: 15%;
-  left: 4%;
-  width: 210px;
-  height: 210px;
+  top: 12%;
+  left: calc(50% - 560px);
+  width: 130px;
 }
 .board {
   width: 90%;
@@ -128,7 +128,7 @@ body {
 
 .player1-full {
   position: absolute;
-  left: 2%;
+  left: calc(50% - 560px);
   bottom: 20%;
   width: 12%;
   /* height: 30%; */
