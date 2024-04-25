@@ -34,6 +34,7 @@ body {
   /* padding: 0.5rem;
   border-radius: 5px; */
   cursor: pointer;
+  z-index: 100000;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
 .btn-start:focus {
