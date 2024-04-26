@@ -46,6 +46,12 @@ class TicTacToe {
     this.gameContainer.classList.remove("hide");
     this.init();
     document.querySelector(".player2-full").classList.add("opacity");
+
+    this.startButtons.forEach((btn) => {
+      // 게임 다시시작 버튼
+      btn.innerHTML =
+        '<img src="./img/restart_button.png" alt="game restart image" class="game-button1">';
+    });
   }
   hidePlayerImages() {
     const xImg = document.getElementById("x-img");
