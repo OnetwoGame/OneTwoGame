@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman Game</title>
     <link rel="stylesheet" href="style.css">
-    <script src="word-list.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="music.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+
+    <!-- <a href="index.html" class="main-page-link">Go to Main Page</a> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+
+
+    
 </head>
 <body>
     <h1>Hangman Game</h1>
@@ -17,9 +24,8 @@
         <div class="content">
             <h4>Game Over!</h4>
              <p>The correct word was: <b></b></p>
-            <button class="play-again">Play Again</button>
         </div>
-    </div>11
+    </div> 
 <!-- 
     <div class="modal">
         <div class="content">
@@ -36,7 +42,7 @@
     </div> -->
     <div class="container">
         <div class="hangman-box" id="new">
-            <img src="img/hangman-0.svg" draggable="false" alt="hangman-img">
+            <img src="img/hangman-0.jpg" draggable="false" alt="hangman-img">
         </div>
         
         <div class="game">
@@ -46,6 +52,7 @@
                 <b>
                 </b></h4>
             <div class="keyboard"></div>
+
         </div>
     </div>
 </body>

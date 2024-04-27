@@ -298,3 +298,28 @@ body {
         transform: translate(-100%, 18%) scale(0.3); /* 최종 크기: 반으로 축소 */
     }
 }
+
+/* 메인 페이지로 가는 버튼 및 재시작 버튼 스타일 */
+.play-again-button,
+.main-page-button {
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #F1C164;
+    color: #2D63A7;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.play-again-button:hover,
+.main-page-button:hover {
+    background-color: #8286c9;
+}
+
+.modal-buttons-container button {
+    margin-right: 3px; /* 버튼 사이의 오른쪽 마진 추가 */
+}
