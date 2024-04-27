@@ -147,7 +147,7 @@ body {
 
 /* Game box styles */
 .game .display {
-  gap: 10px;
+  gap: 20px;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -158,29 +158,29 @@ body {
 }
 
 .display .letter {
-  width: 28px;
+  width: 10px;
   font-size: 2rem;
   /* margin-right: 5px; */
   text-align: center;
   font-weight: 600;
-  margin: 30px;
-  margin-bottom: 40px;
+  padding: 30px;
+  padding-bottom: 100px;
   text-transform: uppercase;
-  border-bottom: 3px solid #000;
+  border-bottom: 10px solid #ffffff;
   transform: rotateX(30deg); /* Adding 3D effect */
   transition: transform 0.4s ease; /* Adding transition effect */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
-  margin-right: 5px; /* Adjusting letter spacing */
+  /* Adjusting letter spacing */
+}
+.game {
+  margin-top: 30%;
 }
 
 .display .letter.guessed {
-  margin: -40px 0 35px;
+  gap: 0px;
+  padding: 0px 30px;
   border-color: transparent;
   transform: rotateX(0deg); /* Rotate back to original position when guessed */
-}
-
-.game {
-  margin-top: 30%;
 }
 
 .game h4 {

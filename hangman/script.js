@@ -9,17 +9,18 @@ const victory = document.querySelector(".new");
 
 const balloon = document.querySelector(".wrap");
 const balloonBox = document.querySelector(".waterBallon-box");
+
 // 단어 목록
 const wl = [
   "apple",
   "banana",
   "orange",
   "grape",
-  "watermelon",
-  "strawberry",
+  // "watermelon",
+  // "strawberry",
   "kiwi",
-  "pineapple",
-  "blueberry",
+  // "pineapple",
+  // "blueberry",
   "peach",
   "mango",
   "pear",
@@ -123,8 +124,11 @@ const ig = (button, clickedLetter) => {
   } else {
     // 틀린 추측 횟수 증가 물풍선 크기 증가로 이미지 변경
     wc++;
-    // wi.src = `img/waterpinkTest${wc}.png`;
+    hi.src = `img/hangman-1.png`;
     if (wc <= 5) {
+      setTimeout(() => {
+        hi.src = "img/hangman-0.jpg";
+      }, 700);
       var newWidth = 113 + wc * 45;
       var newHeight = 150 + wc * 45;
       balloon.style.width = newWidth + "px";
