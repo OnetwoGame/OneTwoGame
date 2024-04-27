@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="word-list.js" defer></script>
     <script src="script.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
-</head>
-<body>
+    <script src="fade.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="fade">
     <h1>Hangman Game</h1>
     <div class="modal">
-        <div class="content">
-            <h4>Game Over!</h4>
-             <p>The correct word was: <b></b></p>
-            <button class="play-again">Play Again</button>
-        </div>
-    </div>11
-<!-- 
-    <div class="modal">
-        <div class="content">
-            <img src="img/victory.png" alt="victory-image" style=" animation: starAnimation 1s ease-in-out forwards;">
-            <h4>Congrats!! </h4>
-            <p>You found the word: <b></b></p>
-            <button class="play-again">Play Again</button>
-        </div>
-    </div> -->
+      <div class="content">
+        <h4>Game Over!</h4>
+        <p>The correct word was: <b></b></p>
+        <button class="play-again">Play Again</button>
+      </div>
+    </div>
 
+    <div class="modal">
+      <div class="content">
+        <h4>Congrats!!</h4>
+        <p>You found the word: <b></b></p>
+        <button class="play-again">Play Again</button>
+      </div>
+    </div>
 
     <!-- <div class="hangman-box">
         <img src="images/hangman-0.svg" draggable="false" alt="hangman-img">
     </div> -->
     <div class="container">
-        <div class="hangman-box" id="new">
-            <img src="img/hangman-0.svg" draggable="false" alt="hangman-img">
+      <div class="hangman-box" id="new">
+        <img src="img/hangman-0.svg" draggable="false" alt="hangman-img" />
+      </div>
+
+      <div class="waterBallon-box">
+        <div class="wrap">
+          <div class="wave"></div>
+          <div class="wave layer_1"></div>
         </div>
-        
-        <div class="game">
-            <ul class="display"></ul>
-            <h4 class="guesses" style="font-size: 2rem; color:white">
-                <img src="img/heart.png" style="width: 80px; height: 60px;">
-                <b>
-                </b></h4>
-            <div class="keyboard"></div>
-        </div>
+      </div>
+
+      <!-- <div class="waterballon-box">
+            <img src="img/hangman-0.svg" draggable="false" alt="waterballon-img">
+        </div> -->
+
+      <div class="game">
+        <ul class="display"></ul>
+        <h4 class="guesses" style="font-size: 2rem; color: white">
+          <img src="img/heart.png" style="width: 80px; height: 60px" />
+          <b> </b>
+        </h4>
+        <div class="keyboard"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
