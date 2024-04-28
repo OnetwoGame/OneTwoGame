@@ -1,1 +1,78 @@
-tictactoe
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="overview">
+      <div class="background">
+        <div class="switch">
+          <img src="./img/switch.png" />
+          <!-- feat_3 game start button -->
+          <button class="btn-start" type="button">
+            <img
+              src="./img/start_button.png"
+              alt="game start image"
+              class="game-button1"
+            />
+          </button>
+          <img
+            src="./img/hanastar1.png"
+            alt="payer1"
+            class="image player1-full"
+          />
+          <!-- container game hide option 추가 -->
+          <div class="container game hide">
+            <div class="board">
+              <div class="board__cell" data-row="0" data-col="0"></div>
+              <div class="board__cell" data-row="0" data-col="1"></div>
+              <div class="board__cell" data-row="0" data-col="2"></div>
+              <div class="board__cell" data-row="1" data-col="0"></div>
+              <div class="board__cell" data-row="1" data-col="1"></div>
+              <div class="board__cell" data-row="1" data-col="2"></div>
+              <div class="board__cell" data-row="2" data-col="0"></div>
+              <div class="board__cell" data-row="2" data-col="1"></div>
+              <div class="board__cell" data-row="2" data-col="2"></div>
+              <!-- X 이미지 -->
+              <img
+                src="./img/hanastar1_h.png"
+                alt="X"
+                class="player-img"
+                id="x-img"
+              />
+              <!-- O 이미지 -->
+              <img
+                src="./img/hanastar2_h.png"
+                alt="O"
+                class="player-img"
+                id="o-img"
+              />
+            </div>
+          </div>
+
+          <img
+            src="./img/hanastar2.png"
+            alt="player2"
+            class="image player2-full"
+          />
+          <a href="../index.html">
+            <button class="btn-home" type="button">
+              <img
+                src="./img/home_button.png"
+                alt="game home image"
+                class="game-button2"
+              /></button
+          ></a>
+          <div class="result hide">
+            <p class="result-text"></p>
+            <!-- 모달 띄우기 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
