@@ -1,15 +1,32 @@
+/* * {
+  border: 2px solid;
+} */
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  cursor: url(./img/cursor.png), auto;
 }
 
 .overview {
   width: 100%;
   height: 100%;
 }
+/* .btn-start1 {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background-color: var(--button-color);
+  padding: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2);
+} */
+/* .btn-start1:focus {
+  animation: scale 0.25s ease-in-out;
+} */
 .btn-start {
   font-family: inherit;
   font-size: inherit;
@@ -17,13 +34,28 @@ body {
   /* background-color: var(--button-color); */
   /* padding: 0.5rem;
   border-radius: 5px; */
-  cursor: pointer;
+  cursor: url(./img/pointer.png), auto;
+  z-index: 200;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
 .btn-start:focus {
   animation: scale 0.25s ease-in-out;
 }
-
+.btn-home {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  /* background-color: var(--button-color); */
+  /* padding: 0.5rem;
+  border-radius: 5px; */
+  /* cursor: pointer; */
+  cursor: url(./img/pointer.png), auto;
+  z-index: 200;
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
+}
+.btn-home:focus {
+  animation: scale 0.25s ease-in-out;
+}
 .container.game.hide {
   display: none;
 }
@@ -42,24 +74,30 @@ body {
 }
 /* 작은 화면에서 switch 잘림 */
 .switch {
-  background-image: url("./img/switch.png");
+  /* background-image: url("./img/switch.png");
   background-size: cover;
+  background-position: center; */
+  position: absolute;
   z-index: 100;
-  width: 80%;
-  height: 80%;
+  width: 1150px;
+  height: 500px;
   position: absolute;
   top: 13%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
 }
 .game-button1 {
   position: absolute;
-  top: 15%;
-  left: 4%;
-  width: 210px;
-  height: 210px;
+  top: 12%;
+  left: calc(50% - 565px);
+  width: 130px;
+}
+.game-button2 {
+  position: absolute;
+  top: 65%;
+  left: calc(50% + 410px);
+  width: 130px;
 }
 .board {
   width: 90%;
@@ -77,20 +115,29 @@ body {
 }
 
 .board__cell {
-  width: 33%;
-  height: 33%;
-  background-color: var(--button-color);
-  border-radius: 5px;
+  width: 32.7%;
+  height: 35%;
+  /* background-color: var(--button-color); */
+  /* border-radius: 5px; */
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: ease-in-out 1s grow;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(146, 146, 146, 0.2);
+  cursor: url(./img/pointer.png), auto;
+  /* box-shadow: 0px 0px 10px rgba(146, 146, 146, 0.2); */
+  z-index: 300;
+}
+.border_left {
+  border-left: 4px solid #fff;
+}
+.border_bottom {
+  border-bottom: 4px solid #fff;
 }
 .board__cell:hover {
   transform: translateZ(10px);
 }
+
 @keyframes grow {
   0% {
     transform: scaleX(0.2) scaleY(0.2);
@@ -112,7 +159,7 @@ body {
 
 .player1-full {
   position: absolute;
-  left: 2%;
+  left: calc(50% - 570px);
   bottom: 20%;
   width: 12%;
   /* height: 30%; */
@@ -125,4 +172,57 @@ body {
 }
 .result.hide {
   display: none;
+}
+.result {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* 기본 이미지 스타일 */
+.image {
+  /* 투명도: 100% */
+  opacity: 1;
+  /* 트랜지션 효과를 부드럽게 하기 위해 추가 */
+  transition: opacity 0.3s ease;
+}
+
+/* player1-full 클래스가 추가된 이미지의 스타일 */
+.player1-full {
+  /* 투명도: 100% */
+  opacity: 1;
+}
+/* player1-full 클래스가 추가된 이미지의 스타일 */
+.player1-full.opacity {
+  /* 투명도: 100% */
+  opacity: 0.5;
+}
+
+/* player2-full 클래스가 추가된 이미지의 스타일 */
+.player2-full {
+  /* 투명도: 50% */
+  opacity: 1;
+}
+.player2-full.opacity {
+  /* 투명도: 100% */
+  opacity: 0.5;
+}
+.player-img {
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
