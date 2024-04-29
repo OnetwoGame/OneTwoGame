@@ -79,6 +79,10 @@ const go = (iv) => {
     // 게임 종료 후 모달에 관련 정보 표시
     const mt = iv ? `You found the word:` : 'The correct word was:';
     if (iv) {
+
+        victorySound.play(); // 성공했을 때 음악 재생
+        pauseBackgroundSound(); // 배경음악 일시정지
+
         const victoryImg = document.createElement("img");
         victoryImg.src = "img/victory.png";
         victoryImg.className = "victory-image";
@@ -93,8 +97,12 @@ const go = (iv) => {
         setTimeout(() => {
             victoryImg.remove(); // 이미지를 5초 후에 삭제
             showGameOverModal({iv,mt}); // 모달을 표시하는 함수 호출
+
         }, 3000); // 5초 후에 실행
     } else {
+
+        failSound.play(); // 성공했을 때 음악 재생
+        pauseBackgroundSound(); // 배경음악 일시정지
         showGameOverModal({iv,mt}); 
     }
 }
