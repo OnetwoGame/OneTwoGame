@@ -1,3 +1,4 @@
+// 캐릭터 리스트 생성
 var characterList = {
     starMan: { active: false },
     starFriend: { active: false },
@@ -10,6 +11,7 @@ var characterList = {
     starWoong: { active: false },
 };
 
+// 캐릭터 상태 변경
 function activeToggle(characterKey) {
     const characterImg = document.getElementById(characterKey);
 
@@ -24,6 +26,7 @@ function activeToggle(characterKey) {
     }
 }
 
+// 행맨 캐릭터 수 검증
 function validateHangman() {
     var cnt = 0;
 
@@ -38,13 +41,13 @@ function validateHangman() {
         alert(hangmanCntErrorMessage);
     } else {
         /**
-         * TODO: 추후 해당하는 행맨 페이지 확인 필요.
          * css와 다르게 location.href는 현재 문서의 위치를 기준으로 URL을 설정함
          */
         location.href = mainToHangmanURL;
     }
 }
 
+// 틱택토 캐릭터 수 검증
 function validateTicTacToe() {
     var cnt = 0;
 
@@ -59,7 +62,6 @@ function validateTicTacToe() {
         alert(tictactoeCntErrorMessage);
     } else {
         /**
-         * TODO: 추후 해당하는 페이지 확인 필요
          * css와 다르게 location.href는 현재 문서의 위치를 기준으로 URL을 설정함
          */
         location.href = mainToTictactoeURL;
