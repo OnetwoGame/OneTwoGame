@@ -9,11 +9,12 @@ const victory = document.querySelector(".new");
 
 const balloon = document.querySelector(".wrap");
 const balloonBox = document.querySelector(".waterBallon-box");
+const waveBox = document.querySelector(".wave-box");
 
 // 메인 페이지로 이동
 const goToMainPage = () => {
-    window.location.href = "../index.html"; 
-}
+  window.location.href = "../index.html";
+};
 
 // 단어 목록
 const wl = [
@@ -64,6 +65,15 @@ const rg = () => {
   kd.querySelectorAll("button").forEach((btn) => (btn.disabled = false));
   // 모달 창 숨기기
   gm.classList.remove("show");
+
+  // 풍선 초기화
+  (function resetBalloon() {
+    balloon.classList.remove("burst");
+    balloon.style.width = "110px";
+    balloon.style.height = "150px";
+    waveBox.style.width = "98px";
+    waveBox.style.height = "98px";
+  })();
 };
 
 // 랜덤 단어 선택 함수
@@ -76,61 +86,59 @@ const gr = () => {
 
 // 게임 종료 함수
 const go = (iv) => {
-    // 게임 종료 후 모달에 관련 정보 표시
-    const mt = iv ? `You found the word:` : 'The correct word was:';
-    if (iv) {
-        const victoryImg = document.createElement("img");
-        victoryImg.src = "img/victory.png";
-        victoryImg.className = "victory-image";
-        document.body.appendChild(victoryImg);
+  // 게임 종료 후 모달에 관련 정보 표시
+  const mt = iv ? `You found the word:` : "The correct word was:";
+  if (iv) {
+    const victoryImg = document.createElement("img");
+    victoryImg.src = "img/victory.png";
+    victoryImg.className = "victory-image";
+    document.body.appendChild(victoryImg);
 
-        const hangmanImg = document.querySelector(".hangman-box img");
-        hangmanImg.remove(); // hangman 이미지 삭제
-        balloonBox.remove(); // balloon 삭제
-        const nulll=document.querySelector('.game');
-        nulll.remove();
-        
-        setTimeout(() => {
-            victoryImg.remove(); // 이미지를 5초 후에 삭제
-            showGameOverModal({iv,mt}); // 모달을 표시하는 함수 호출
-        }, 3000); // 5초 후에 실행
-    } else {
-        showGameOverModal({iv,mt}); 
-    }
-}
+    const hangmanImg = document.querySelector(".hangman-box img");
+    hangmanImg.remove(); // hangman 이미지 삭제
+    balloonBox.remove(); // balloon 삭제
+    const nulll = document.querySelector(".game");
+    nulll.remove();
 
+    setTimeout(() => {
+      victoryImg.remove(); // 이미지를 5초 후에 삭제
+      showGameOverModal({ iv, mt }); // 모달을 표시하는 함수 호출
+    }, 3000); // 5초 후에 실행
+  } else {
+    hi.src = "img/hangman-2.png"; // 실패시 별돌이 이미지
+    showGameOverModal({ iv, mt });
+  }
+};
 
 // 게임 종료 후 모달 표시 함수
 const showGameOverModal = ({ iv, mt }) => {
-    gm.querySelector("h4").innerText = iv ? 'Congrats!' : 'Game Over!'; // 모달 제목 변경
-    gm.querySelector("p").innerHTML = `${mt} <b>${cw}</b>`; // 모달 텍스트 변경
-    console.log("모달로 들어옴");
+  gm.querySelector("h4").innerText = iv ? "Congrats!" : "Game Over!"; // 모달 제목 변경
+  gm.querySelector("p").innerHTML = `${mt} <b>${cw}</b>`; // 모달 텍스트 변경
+  console.log("모달로 들어옴");
 
-    // "Play Again" 버튼 추가
-    const playAgainButton = document.createElement("button");
-    playAgainButton.innerText = "Play Again";
-    playAgainButton.classList.add("restart-button");
-    playAgainButton.addEventListener("click", () => {
-        window.location.reload(); // 페이지 다시 로드하여 게임 다시 시작
-    });
+  // "Play Again" 버튼 추가
+  const playAgainButton = document.createElement("button");
+  playAgainButton.innerText = "Play Again";
+  playAgainButton.classList.add("restart-button");
+  playAgainButton.addEventListener("click", () => {
+    window.location.reload(); // 페이지 다시 로드하여 게임 다시 시작
+  });
 
-    // "Main Page" 버튼 추가
-    const mainPageButton = document.createElement("button");
-    mainPageButton.innerText = "Main Page";
-    mainPageButton.classList.add("main-page-link");
-    mainPageButton.addEventListener("click", goToMainPage);
+  // "Main Page" 버튼 추가
+  const mainPageButton = document.createElement("button");
+  mainPageButton.innerText = "Main Page";
+  mainPageButton.classList.add("main-page-link");
+  mainPageButton.addEventListener("click", goToMainPage);
 
-    const buttonsContainer = document.createElement("div"); // 새로운 요소 생성
-    buttonsContainer.classList.add("modal-buttons-container");
-    buttonsContainer.appendChild(playAgainButton);
-    buttonsContainer.appendChild(mainPageButton);
+  const buttonsContainer = document.createElement("div"); // 새로운 요소 생성
+  buttonsContainer.classList.add("modal-buttons-container");
+  buttonsContainer.appendChild(playAgainButton);
+  buttonsContainer.appendChild(mainPageButton);
 
-    gm.querySelector(".content").appendChild(buttonsContainer); // 버튼 컨테이너 모달에 추가
+  gm.querySelector(".content").appendChild(buttonsContainer); // 버튼 컨테이너 모달에 추가
 
-    gm.classList.add("show"); // 모달 창 보이기
-}
-
-
+  gm.classList.add("show"); // 모달 창 보이기
+};
 
 // 게임 초기화 함수
 const ig = (button, clickedLetter) => {
@@ -158,24 +166,25 @@ const ig = (button, clickedLetter) => {
       setTimeout(() => {
         hi.src = "img/hangman-0.jpg";
       }, 700);
-      var newWidth = 113 + wc * 45;
-      var newHeight = 150 + wc * 45;
+      var newWidth = 98 + wc * 40;
+      var newHeight = 150 + wc * 60;
       balloon.style.width = newWidth + "px";
       balloon.style.height = newHeight + "px";
+
+      var newWidth2 = 98 + wc * 40;
+      var newHeight2 = 98 + wc * 40;
+      waveBox.style.width = newWidth2 + "px";
+      waveBox.style.height = newHeight2 + "px";
     } else {
       balloon.classList.add("burst"); // 풍선 터지는 애니메이션
+      const waterFallImg = document.createElement("div");
+      waterFallImg.className = "waterfall";
+      document.querySelector(".container").appendChild(waterFallImg);
       setTimeout(function () {
-        //풍선 초기화 기능
-        resetBalloon();
-      }, 1000);
+        // waterfall div 제거
+        waterFallImg.remove();
+      }, 2000);
     }
-  }
-
-  function resetBalloon() {
-    count = 0;
-    balloon.classList.remove("burst");
-    balloon.style.width = "113px";
-    balloon.style.height = "150px";
   }
 
   button.disabled = true; // 클릭한 버튼 비활성화
@@ -197,13 +206,20 @@ for (let i = 97; i <= 122; i++) {
   button.addEventListener("click", (e) => ig(e.target, String.fromCharCode(i))); // 클릭 시 ig 함수 호출
 }
 
+// reset 버튼
+
+const resetButton = document.querySelector(" .reset-button");
+resetButton.addEventListener("click", () => {
+  gr();
+});
+
 gr(); // 초기 단어 선택
 
-pb.addEventListener("click", gr); 
+pb.addEventListener("click", gr);
 
 const restartButton = document.querySelector(".restart-button");
 
 // 재시작 버튼 클릭 시 이벤트 처리
 restartButton.addEventListener("click", () => {
-    gr(); // 새로운 단어 선택
+  gr(); // 새로운 단어 선택
 });

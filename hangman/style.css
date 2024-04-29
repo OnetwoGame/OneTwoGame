@@ -25,16 +25,22 @@ body {
   padding: 0 10px;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: url("img/background3.jpg");
+  /* min-width: 1000px; */
+  min-height: 900px;
+  background: url("img/background6.jpg");
   background-size: cover;
   background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
   flex-direction: column;
   opacity: 1;
   transition-duration: 1s;
   transition-property: opacity;
   cursor: url(../assets/cursor.png), auto;
+  /* background-attachment: fixed; */
 }
+
+
 
 .container {
   position: relative; /* 위치 지정을 위해 필요함 */
@@ -42,8 +48,7 @@ body {
   display: flex;
   width: 900px;
   gap: 70px;
-  /* margin-top: 20%; */
-  padding: 60px 40px;
+  padding: 0px 40px;
   border-radius: 10px;
   align-items: column;
   justify-content: space-between;
@@ -69,7 +74,7 @@ body {
 
 /* Hangman box styles */
 .hangman-box img {
-  margin-top: 13%; /* 이미지를 조금 올림 */
+  margin-top: 16%; /* 이미지를 조금 올림 */
   user-select: none;
   margin-left: -20%;
   max-width: 280px;
@@ -86,7 +91,7 @@ body {
 .waterBallon-box {
   margin-top: -18%;
   user-select: none;
-  margin-left: -11%;
+  margin-left: -20%;
   transform: rotateY(20deg);
   transition: transform 0.4s ease;
   position: absolute;
@@ -95,35 +100,44 @@ body {
 }
 
 .wrap {
-  width: 113px;
-  height: 151px;
+  width: 110px;
+  height: 150px;
   overflow: hidden;
-  /* 물풍선 이미지 추가
-    
-    background-image: url("waterblue.png");
-    background-size: cover;
-    background-repeat: no-repeat; 
-    
-    */
-  border-radius: 50%;
+  background-image: url("img/water-dot2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 37%;
   transform: translate(-50%, -50%); /* 물풍선 위치 고정 기능 */
   transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-  background: rgba(158, 129, 240, 0.699);
+  /* background: rgba(250, 255, 254, 0.985); */
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.wave-box {
+  width: 98px;
+  height: 98px;
+  border-radius: 100%;
+  left: -3px;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 31%;
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+}
 
 .wave {
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   position: absolute;
-  top: 45%;
+  top: 53%;
   left: -150px;
-  border-radius: 43%;
-  animation: drift 4s infinite linear;
-  background: rgba(68, 17, 209, 0.699);
+  border-radius: 40%;
+  animation: drift 5s infinite linear;
+  background: rgba(63, 58, 219, 0.708);
 }
 
 @keyframes drift {
@@ -144,6 +158,37 @@ body {
     transform: scale(1.5) translate(-35%, -35%);
     opacity: 0;
   }
+}
+
+/* 이미지가 폭포처럼 흐르는 애니메이션 키프레임 */
+@keyframes flowingWaterfall {
+  0% {
+    opacity: 0; /* 처음에는 보이지 않음 */
+    transform: translateY(-50%); /* 위에서 아래로 이동 */
+  }
+  40% {
+    opacity: 1; /* 절반 지점에서 나타남 */
+  }
+  100% {
+    opacity: 0; /* 끝에서 다시 사라짐 */
+    transform: translateY(50%); /* 아래로 이동 */
+  }
+}
+
+/* 이미지 스타일 */
+.waterfall {
+  position: absolute;
+  top: 100px;
+  transform: translateX(0);
+  width: 500px;
+  height: 500px;
+  background-image: url("img/waterfall.png"); /* 이미지 경로 */
+  background-size: cover;
+  animation: flowingWaterfall 2.5s linear; /* 이미지가 폭포처럼 흐르는 애니메이션 적용 */
+  opacity: 0; /* 처음에는 보이지 않도록 설정 */
+  pointer-events: none; /* 기본적으로 클릭 이벤트를 무시함 */
+  user-select: none;
+  margin-left: -40%;
 }
 
 /* Game box styles */
@@ -208,7 +253,7 @@ body {
 }
 
 /* Button styles */
-:where(.modal, .keyboard) button {
+:where(.modal, .keyboard, .reset) button {
   color: #2d63a7;
   border: none;
   outline: none;
@@ -334,8 +379,8 @@ body {
 
 .victory-image {
   position: fixed;
-  top: 50%;
-  left: 0;
+  top: 40%;
+  left: 25%;
   transform: translate(0, -50%);
   z-index: 9999;
   width: 230px;
@@ -345,11 +390,11 @@ body {
 
 @keyframes moveRightAndShrink {
   0% {
-    left: 0; /* 초기 위치: 왼쪽 끝 */
+    left: 25; /* 초기 위치: 왼쪽 끝 */
     transform: translate(0, -50%) scale(1); /* 초기 크기: 원래 크기 */
   }
   50% {
-    left: 30%; /* 중간 위치: 오른쪽 중간 */
+    left: 40%; /* 중간 위치: 오른쪽 중간 */
     transform: translate(-50%, -50%) scale(1.2); /* 중간 크기: 1.2배 확대 */
   }
 
@@ -360,9 +405,9 @@ body {
   }
 
   100% {
-    left: 59%; /* 최종 위치: 오른쪽 끝 */
+    left: 54%; /* 최종 위치: 오른쪽 끝 */
 
-    transform: translate(-100%, 18%) scale(0.3); /* 최종 크기: 반으로 축소 */
+    transform: translate(-100%, 85%) scale(0.3); /* 최종 크기: 반으로 축소 */
   }
 }
 
@@ -393,4 +438,10 @@ body.fade {
 
 .modal-buttons-container button {
   margin-right: 3px; /* 버튼 사이의 오른쪽 마진 추가 */
+}
+
+.reset {
+  position: absolute;
+  left: 75%;
+  bottom: 90%;
 }
