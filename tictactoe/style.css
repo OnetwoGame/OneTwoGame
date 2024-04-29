@@ -1,6 +1,19 @@
 /* * {
   border: 2px solid;
 } */
+
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: "Jersey 10", cursive;
+}
+
 html,
 body {
   margin: 0;
