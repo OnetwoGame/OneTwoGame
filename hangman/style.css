@@ -25,17 +25,22 @@ body {
   padding: 0 10px;
   align-items: center;
   justify-content: center;
-  min-height: 100%;
-  background: url("img/background3.jpg");
+  /* min-width: 1000px; */
+  min-height: 900px;
+  background: url("img/background6.jpg");
   background-size: cover;
   background-position: center;
+  background-size: auto;
+  background-repeat: no-repeat;
   flex-direction: column;
   opacity: 1;
   transition-duration: 1s;
   transition-property: opacity;
   cursor: url(../assets/cursor.png), auto;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
 }
+
+
 
 .container {
   position: relative; /* 위치 지정을 위해 필요함 */
@@ -69,7 +74,7 @@ body {
 
 /* Hangman box styles */
 .hangman-box img {
-  margin-top: 18%; /* 이미지를 조금 올림 */
+  margin-top: 16%; /* 이미지를 조금 올림 */
   user-select: none;
   margin-left: -20%;
   max-width: 280px;
@@ -84,7 +89,7 @@ body {
 
 /* waterBallon styles */
 .waterBallon-box {
-  margin-top: -15%;
+  margin-top: -18%;
   user-select: none;
   margin-left: -20%;
   transform: rotateY(20deg);
@@ -374,8 +379,8 @@ body {
 
 .victory-image {
   position: fixed;
-  top: 50%;
-  left: 0;
+  top: 40%;
+  left: 25%;
   transform: translate(0, -50%);
   z-index: 9999;
   width: 230px;
@@ -385,11 +390,11 @@ body {
 
 @keyframes moveRightAndShrink {
   0% {
-    left: 0; /* 초기 위치: 왼쪽 끝 */
+    left: 25; /* 초기 위치: 왼쪽 끝 */
     transform: translate(0, -50%) scale(1); /* 초기 크기: 원래 크기 */
   }
   50% {
-    left: 30%; /* 중간 위치: 오른쪽 중간 */
+    left: 40%; /* 중간 위치: 오른쪽 중간 */
     transform: translate(-50%, -50%) scale(1.2); /* 중간 크기: 1.2배 확대 */
   }
 
@@ -400,9 +405,9 @@ body {
   }
 
   100% {
-    left: 59%; /* 최종 위치: 오른쪽 끝 */
+    left: 54%; /* 최종 위치: 오른쪽 끝 */
 
-    transform: translate(-100%, 18%) scale(0.3); /* 최종 크기: 반으로 축소 */
+    transform: translate(-100%, 85%) scale(0.3); /* 최종 크기: 반으로 축소 */
   }
 }
 
@@ -437,6 +442,6 @@ body.fade {
 
 .reset {
   position: absolute;
-  left: 80%;
+  left: 75%;
   bottom: 90%;
 }
