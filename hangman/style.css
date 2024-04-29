@@ -33,6 +33,7 @@ body {
   opacity: 1;
   transition-duration: 1s;
   transition-property: opacity;
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .container {
@@ -226,6 +227,7 @@ body {
 
 .keyboard button {
   width: calc(100% / 9 - 5px);
+  cursor: url(../assets/pointer.png), auto;
 }
 
 .keyboard button[disabled] {
@@ -254,6 +256,7 @@ body {
   background: #fff;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .modal img {
@@ -285,6 +288,7 @@ body {
 
 .modal button {
   padding: 12px 23px;
+  cursor: url(../assets/pointer.png), auto;
 }
 
 @media (max-width: 782px) {
@@ -369,24 +373,24 @@ body.fade {
 /* 메인 페이지로 가는 버튼 및 재시작 버튼 스타일 */
 .play-again-button,
 .main-page-button {
-    padding: 12px 30px;
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border-radius: 5px;
-    background-color: #F1C164;
-    color: #2D63A7;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 12px 30px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #f1c164;
+  color: #2d63a7;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .play-again-button:hover,
 .main-page-button:hover {
-    background-color: #8286c9;
+  background-color: #8286c9;
 }
 
 .modal-buttons-container button {
-    margin-right: 3px; /* 버튼 사이의 오른쪽 마진 추가 */
+  margin-right: 3px; /* 버튼 사이의 오른쪽 마진 추가 */
 }

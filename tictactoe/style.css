@@ -7,7 +7,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  cursor: url(./img/cursor.png), auto;
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .overview {
@@ -34,7 +34,7 @@ body {
   /* background-color: var(--button-color); */
   /* padding: 0.5rem;
   border-radius: 5px; */
-  cursor: url(./img/pointer.png), auto;
+  cursor: url(../assets/pointer.png), auto;
   z-index: 200;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
@@ -49,7 +49,7 @@ body {
   /* padding: 0.5rem;
   border-radius: 5px; */
   /* cursor: pointer; */
-  cursor: url(./img/pointer.png), auto;
+  cursor: url(../assets/pointer.png), auto;
   z-index: 200;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
@@ -124,7 +124,7 @@ body {
   justify-content: center;
   align-items: center;
   animation: ease-in-out 1s grow;
-  cursor: url(./img/pointer.png), auto;
+  cursor: url(../assets/pointer.png), auto;
   /* box-shadow: 0px 0px 10px rgba(146, 146, 146, 0.2); */
   z-index: 300;
 }
@@ -252,6 +252,7 @@ body {
   font-size: 2rem;
   border-radius: 10%;
   border: none;
+  cursor: url(../assets/pointer.png), auto;
 }
 .stop-button {
   background-color: #14c3e0;
@@ -261,6 +262,7 @@ body {
   font-size: 2rem;
   border-radius: 10%;
   border: none;
+  cursor: url(../assets/pointer.png), auto;
 }
 
 /* 기본 이미지 스타일 */
