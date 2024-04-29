@@ -33,6 +33,7 @@ body {
   opacity: 1;
   transition-duration: 1s;
   transition-property: opacity;
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .container {
@@ -265,6 +266,7 @@ body {
 
 .keyboard button {
   width: calc(100% / 9 - 5px);
+  cursor: url(../assets/pointer.png), auto;
 }
 
 .keyboard button[disabled] {
@@ -293,6 +295,7 @@ body {
   background: #fff;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .modal img {
@@ -324,6 +327,7 @@ body {
 
 .modal button {
   padding: 12px 23px;
+  cursor: url(../assets/pointer.png), auto;
 }
 
 @media (max-width: 782px) {

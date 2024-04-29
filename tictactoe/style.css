@@ -1,12 +1,26 @@
 /* * {
   border: 2px solid;
 } */
+
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  font-family: "Jersey 10", cursive;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  cursor: url(../assets/cursor.png), auto;
 }
 
 .overview {
@@ -22,8 +36,8 @@ body {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-.btn-start1:focus {
+} */
+/* .btn-start1:focus {
   animation: scale 0.25s ease-in-out;
 } */
 .btn-start {
@@ -33,7 +47,7 @@ body {
   /* background-color: var(--button-color); */
   /* padding: 0.5rem;
   border-radius: 5px; */
-  cursor: pointer;
+  cursor: url(../assets/pointer.png), auto;
   z-index: 200;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
@@ -47,7 +61,8 @@ body {
   /* background-color: var(--button-color); */
   /* padding: 0.5rem;
   border-radius: 5px; */
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: url(../assets/pointer.png), auto;
   z-index: 200;
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
@@ -113,22 +128,29 @@ body {
 }
 
 .board__cell {
-  width: 33%;
-  height: 33%;
+  width: 32.7%;
+  height: 35%;
   /* background-color: var(--button-color); */
-  border-radius: 5px;
+  /* border-radius: 5px; */
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: ease-in-out 1s grow;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(146, 146, 146, 0.2);
+  cursor: url(../assets/pointer.png), auto;
+  /* box-shadow: 0px 0px 10px rgba(146, 146, 146, 0.2); */
   z-index: 300;
+}
+.border_left {
+  border-left: 4px solid #fff;
+}
+.border_bottom {
+  border-bottom: 4px solid #fff;
 }
 .board__cell:hover {
   transform: translateZ(10px);
 }
+
 @keyframes grow {
   0% {
     transform: scaleX(0.2) scaleY(0.2);
@@ -164,12 +186,15 @@ body {
 .result.hide {
   display: none;
 }
+
 .result {
   position: absolute;
-  left: 0;
+  left: 24%;
   right: 0;
-  top: 0;
+  top: 16%;
   bottom: 0;
+  width: 50%;
+  height: 60%;
   background-color: rgba(0, 0, 0, 0.4);
   color: rgb(255, 255, 255);
   font-weight: bold;
@@ -178,6 +203,79 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  z-index: 1000;
+}
+
+.result-text {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -40%) rotate(-20deg);
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: bolder;
+  color: #e4f247;
+}
+
+/* 게임 재시작 modal 창 */
+.play-again.hide {
+  display: none;
+}
+.play-again {
+  position: absolute;
+  left: 24%;
+  right: 0;
+  top: 16%;
+  bottom: 0;
+  width: 50%;
+  height: 60%;
+  background-color: #f6f4e9;
+  z-index: 2000;
+  border-radius: 2%;
+}
+.again-text {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+.modal-buttons {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -10%);
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-evenly;
+}
+/* 재시작 모달창 버튼 */
+.again-button {
+  background-color: #fe6458;
+  color: white;
+  width: 20%;
+  height: 20%;
+  font-size: 2rem;
+  border-radius: 10%;
+  border: none;
+  cursor: url(../assets/pointer.png), auto;
+}
+.stop-button {
+  background-color: #14c3e0;
+  color: white;
+  width: 20%;
+  height: 20%;
+  font-size: 2rem;
+  border-radius: 10%;
+  border: none;
+  cursor: url(../assets/pointer.png), auto;
 }
 
 /* 기본 이미지 스타일 */
@@ -209,7 +307,7 @@ body {
   opacity: 0.5;
 }
 .player-img {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 0;
   left: 0;

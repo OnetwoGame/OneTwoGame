@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -27,15 +33,47 @@
           <!-- container game hide option 추가 -->
           <div class="container game hide">
             <div class="board">
-              <div class="board__cell" data-row="0" data-col="0"></div>
-              <div class="board__cell" data-row="0" data-col="1"></div>
-              <div class="board__cell" data-row="0" data-col="2"></div>
-              <div class="board__cell" data-row="1" data-col="0"></div>
-              <div class="board__cell" data-row="1" data-col="1"></div>
-              <div class="board__cell" data-row="1" data-col="2"></div>
+              <div
+                class="board__cell border_bottom"
+                data-row="0"
+                data-col="0"
+              ></div>
+              <div
+                class="board__cell border_left border_bottom"
+                data-row="0"
+                data-col="1"
+              ></div>
+              <div
+                class="board__cell border_left border_bottom"
+                data-row="0"
+                data-col="2"
+              ></div>
+              <div
+                class="board__cell border_bottom"
+                data-row="1"
+                data-col="0"
+              ></div>
+              <div
+                class="board__cell border_left border_bottom"
+                data-row="1"
+                data-col="1"
+              ></div>
+              <div
+                class="board__cell border_left border_bottom"
+                data-row="1"
+                data-col="2"
+              ></div>
               <div class="board__cell" data-row="2" data-col="0"></div>
-              <div class="board__cell" data-row="2" data-col="1"></div>
-              <div class="board__cell" data-row="2" data-col="2"></div>
+              <div
+                class="board__cell border_left"
+                data-row="2"
+                data-col="1"
+              ></div>
+              <div
+                class="board__cell border_left"
+                data-row="2"
+                data-col="2"
+              ></div>
               <!-- X 이미지 -->
               <img
                 src="./img/hanastar1_h.png"
@@ -69,6 +107,15 @@
           <div class="result hide">
             <p class="result-text"></p>
             <!-- 모달 띄우기 -->
+          </div>
+
+          <!-- 재시작 modal -->
+          <div class="play-again hide">
+            <p class="again-text">Play Again?</p>
+            <div class="modal-buttons">
+              <button class="again-button">YES</button>
+              <button class="stop-button">NO</button>
+            </div>
           </div>
         </div>
       </div>

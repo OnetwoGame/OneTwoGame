@@ -2,6 +2,7 @@ class TicTacToe {
   constructor() {
     this.player;
     this.board;
+    this.flag = 0;
     //게임 플레이 여부
     this.playing = false;
     //각 칸
@@ -13,6 +14,9 @@ class TicTacToe {
     this.gameContainer = document.querySelector(".game");
     this.playerDisplay = document.querySelector(".player__id");
     this.resultDisplay = document.querySelector(".result");
+    this.playAgainDisplay = document.querySelector(".play-again");
+    this.againButton = document.querySelector(".again-button");
+    this.stopButton = document.querySelector(".stop-button");
     this.info = document.querySelector(".info");
     this.xImg = document.getElementById("x-img");
     this.oImg = document.getElementById("o-img");
@@ -24,7 +28,14 @@ class TicTacToe {
 
     //게임 시작, 게임 다시 하기 버튼
     this.startButtons.forEach((btn) => {
+      console.log(this.flag + "asfg");
       btn.addEventListener("click", this.startNewGame.bind(this));
+    });
+
+    // modal 창에서 "아니오" 버튼 클릭 시
+    this.stopButton.addEventListener("click", () => {
+      document.querySelector(".play-again").classList.add("hide");
+      // resolve를 호출하여 false 반환
     });
 
     this.init();
@@ -40,7 +51,55 @@ class TicTacToe {
     this.cells.forEach((cell) => (cell.textContent = ""));
   }
 
+  //game 새로 시작
   startNewGame() {
+    console.log(this.flag);
+    //게임 modal 창
+    //만약 이미 게임을 실행했다면?
+    if (this.flag === 1) {
+      //재시작 modal 띄우기
+      this.playAgainDisplay.classList.remove("hide");
+
+      // again button 클릭 시
+      const playAgainHandler = () => {
+        console.log("play again");
+        // 모달 창 숨기기
+        this.playAgainDisplay.classList.add("hide");
+        // 다시 게임을 하지 않는다면?
+        this.hidePlayerImages();
+        this.resultDisplay.classList.add("hide");
+        this.gameContainer.classList.remove("hide");
+        this.init();
+        document.querySelector(".player2-full").classList.add("opacity");
+
+        this.startButtons.forEach((btn) => {
+          this.flag = 1;
+          // 게임 다시시작 버튼
+          btn.innerHTML =
+            '<img src="./img/restart_button.png" alt="game restart image" class="game-button1">';
+        });
+      };
+
+      // again button 이벤트 리스너 등록
+
+      this.againButton.addEventListener("click", playAgainHandler);
+
+      // stop button 클릭 시
+      const stopButtonClickHandler = () => {
+        console.log("stop game");
+        // 모달 창 숨기기
+        this.playAgainDisplay.classList.add("hide");
+        // 함수 종료
+        return;
+      };
+
+      // stop button 이벤트 리스너 등록
+      this.stopButton.addEventListener("click", stopButtonClickHandler);
+
+      return;
+    }
+
+    //처음 시작한다면 if문 실행하지 않고 바로 밑 코드부터 실행
     this.hidePlayerImages();
     this.resultDisplay.classList.add("hide");
     this.gameContainer.classList.remove("hide");
@@ -48,11 +107,37 @@ class TicTacToe {
     document.querySelector(".player2-full").classList.add("opacity");
 
     this.startButtons.forEach((btn) => {
+      this.flag = 1;
       // 게임 다시시작 버튼
       btn.innerHTML =
         '<img src="./img/restart_button.png" alt="game restart image" class="game-button1">';
     });
   }
+
+  //game 재시작 -> 비동기 처리 에러로 사용 X
+  playAgain() {
+    return new Promise((resolve, reject) => {
+      // "네" 버튼 클릭 시
+      document
+        .querySelector(".again-button")
+        .addEventListener("click", function () {
+          document.querySelector(".play-again").classList.add("hide");
+          // resolve를 호출하여 true 반환
+          resolve(true);
+        });
+
+      // "아니오" 버튼 클릭 시
+      const stopButtonClickHandler = () => {
+        document.querySelector(".play-again").classList.add("hide");
+        // resolve를 호출하여 false 반환
+        resolve(false);
+        // 이벤트 핸들러 제거
+        this.stopButton.removeEventListener("click", stopButtonClickHandler);
+      };
+      this.stopButton.addEventListener("click", stopButtonClickHandler);
+    });
+  }
+
   hidePlayerImages() {
     const xImg = document.getElementById("x-img");
     const oImg = document.getElementById("o-img");
@@ -61,6 +146,7 @@ class TicTacToe {
   }
 
   finishGame() {
+    this.flag = 1;
     this.playing = false;
     // this.coverContainer.classList.remove("hide");
     this.gameContainer.classList.add("hide");
@@ -78,11 +164,16 @@ class TicTacToe {
       this.markCell({ row, col, el });
       if (this.isCurrentPlayerWin()) {
         // 3칸이 이어진 경우 해당 플레이어 승리
-        this.displayText(`${this.player}의 승리!`);
+        if (this.player === "X") {
+          this.displayText(`Player1 Win!`);
+        } else {
+          this.displayText(`Player2 Win!`);
+        }
+        // this.displayText(`${this.player}의 승리!`);
         this.finishGame();
       } else if (this.isEveryCellMarked()) {
         // 3칸을 잇지 못했지만 모든 칸이 찬 경우 비김
-        this.displayText("비겼습니다");
+        this.displayText("DRAW");
         this.finishGame();
       } else {
         // 누구도 3칸을 잇지 못하고, 남은 칸이 있는 경우
@@ -113,7 +204,7 @@ class TicTacToe {
     this.resultDisplay.querySelector(".result-text").textContent = text;
     this.resultDisplay.classList.remove("hide");
     this.info.classList.add("blur");
-    console.log(text);
+    // console.log(text);
   }
 
   isEmptyCell({ row, col }) {
