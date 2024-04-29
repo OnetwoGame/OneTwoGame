@@ -34,6 +34,7 @@ body {
   transition-duration: 1s;
   transition-property: opacity;
   cursor: url(../assets/cursor.png), auto;
+  background-attachment: fixed;
 }
 
 .container {
@@ -68,7 +69,7 @@ body {
 
 /* Hangman box styles */
 .hangman-box img {
-  margin-top: 13%; /* 이미지를 조금 올림 */
+  margin-top: 18%; /* 이미지를 조금 올림 */
   user-select: none;
   margin-left: -20%;
   max-width: 280px;
