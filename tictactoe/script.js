@@ -172,6 +172,10 @@ class TicTacToe {
       if (this.isCurrentPlayerWin()) {
         // 3칸이 이어진 경우 해당 플레이어 승리
         //현재 플레이어가 X라면
+
+        initDrawingCanvas();
+        requestAnimationFrame(loop);
+
         if (this.player === "X") {
           this.displayText(`Player1 Win!`);
         } else {
@@ -275,9 +279,9 @@ class TicTacToe {
     if (this.playing) {
       const img = this.player === "X" ? this.xImg : this.oImg;
       const cloneImg = img.cloneNode(true);
+      el.parentNode.appendChild(cloneImg);
       // display를 block으로 변경
       cloneImg.style.display = "block";
-      el.parentNode.appendChild(cloneImg);
       // 현재 플레이어 칸 채우기
       this.board[row][col] = this.player;
     }
