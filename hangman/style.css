@@ -1,312 +1,310 @@
-@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 
 .jersey-10-regular {
-  font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Jersey 10', sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 * {
-  box-sizing: border-box;
-  font-family: "Jersey 10", cursive;
+    box-sizing: border-box;
+    font-family: 'Jersey 10', cursive;
 }
 
 h1 {
-  text-align: center; /* 가운데 정렬 */
-  font-size: 3rem; /* 글자 크기를 키움 */
-  margin-top: 20px; /* 제목 위 여백 추가 */
-  text-shadow: #000;
-  color: #f1c164;
-  text-shadow: 5px 5px #2d63a7;
+    text-align: center; /* 가운데 정렬 */
+    font-size: 3rem; /* 글자 크기를 키움 */
+    margin-top: 20px; /* 제목 위 여백 추가 */
+    text-shadow: #000;
+    color: #f1c164;
+    text-shadow: 5px 5px #2d63a7;
 }
 
 body {
-  display: flex;
-  padding: 0 10px;
-  align-items: center;
-  justify-content: center;
-  /* min-width: 1000px; */
-  min-height: 900px;
-  background: url("img/background6.jpg");
-  background-size: cover;
-  background-position: center;
-  background-size: auto;
-  background-repeat: no-repeat;
-  flex-direction: column;
-  opacity: 1;
-  transition-duration: 1s;
-  transition-property: opacity;
-  cursor: url(../assets/cursor.png), auto;
-  /* background-attachment: fixed; */
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 1000px; */
+    min-height: 900px;
+    background: url('img/background6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    opacity: 1;
+    transition-duration: 1s;
+    transition-property: opacity;
+    cursor: url(../assets/cursor.png), auto;
+    /* background-attachment: fixed; */
 }
 
-
-
 .container {
-  position: relative; /* 위치 지정을 위해 필요함 */
-  z-index: 1;
-  display: flex;
-  width: 900px;
-  gap: 70px;
-  padding: 0px 40px;
-  border-radius: 10px;
-  align-items: column;
-  justify-content: space-between;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative; /* 위치 지정을 위해 필요함 */
+    z-index: 1;
+    display: flex;
+    width: 900px;
+    gap: 70px;
+    padding: 0px 40px;
+    border-radius: 10px;
+    align-items: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .modal {
-  position: absolute; /* 모달을 절대 위치로 설정 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999; /* 모달을 컨테이너 위에 표시하기 위해 더 높은 z-index 값 설정 */
-  padding: 0 10px;
-  transition: opacity 0.4s ease;
+    position: absolute; /* 모달을 절대 위치로 설정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* 모달을 컨테이너 위에 표시하기 위해 더 높은 z-index 값 설정 */
+    padding: 0 10px;
+    transition: opacity 0.4s ease;
 }
 
 /* Hangman box styles */
 .hangman-box img {
-  margin-top: 16%; /* 이미지를 조금 올림 */
-  user-select: none;
-  margin-left: -20%;
-  max-width: 280px;
-  transform: rotateY(20deg);
-  transition: transform 0.4s ease;
-  position: absolute;
+    margin-top: 16%; /* 이미지를 조금 올림 */
+    user-select: none;
+    margin-left: -20%;
+    max-width: 280px;
+    transform: rotateY(20deg);
+    transition: transform 0.4s ease;
+    position: absolute;
 }
 
 .hangman-box img:hover {
-  transform: rotateY(0deg); /* Rotate back to original position on hover */
+    transform: rotateY(0deg); /* Rotate back to original position on hover */
 }
 
 /* waterBallon styles */
 .waterBallon-box {
-  margin-top: -18%;
-  user-select: none;
-  margin-left: -20%;
-  transform: rotateY(20deg);
-  transition: transform 0.4s ease;
-  position: absolute;
-  top: 100px;
-  transition: opacity 0.2s;
+    margin-top: -18%;
+    user-select: none;
+    margin-left: -20%;
+    transform: rotateY(20deg);
+    transition: transform 0.4s ease;
+    position: absolute;
+    top: 100px;
+    transition: opacity 0.2s;
 }
 
 .wrap {
-  width: 110px;
-  height: 150px;
-  overflow: hidden;
-  background-image: url("img/water-dot2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 37%;
-  transform: translate(-50%, -50%); /* 물풍선 위치 고정 기능 */
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
-  /* background: rgba(250, 255, 254, 0.985); */
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 110px;
+    height: 150px;
+    overflow: hidden;
+    background-image: url('img/water-dot2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 37%;
+    transform: translate(-50%, -50%); /* 물풍선 위치 고정 기능 */
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    /* background: rgba(250, 255, 254, 0.985); */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .wave-box {
-  width: 98px;
-  height: 98px;
-  border-radius: 100%;
-  left: -3px;
-  overflow: hidden;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 31%;
-  transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    width: 98px;
+    height: 98px;
+    border-radius: 100%;
+    left: -3px;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 31%;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
 }
 
 .wave {
-  width: 550px;
-  height: 550px;
-  position: absolute;
-  top: 53%;
-  left: -150px;
-  border-radius: 40%;
-  animation: drift 5s infinite linear;
-  background: rgba(63, 58, 219, 0.708);
+    width: 550px;
+    height: 550px;
+    position: absolute;
+    top: 53%;
+    left: -150px;
+    border-radius: 40%;
+    animation: drift 5s infinite linear;
+    background: rgba(63, 58, 219, 0.708);
 }
 
 @keyframes drift {
-  100% {
-    transform: rotate(-360deg);
-  }
+    100% {
+        transform: rotate(-360deg);
+    }
 }
 
 .wrap.burst {
-  animation: burstAnimation 0.5s ease forwards;
+    animation: burstAnimation 0.5s ease forwards;
 }
 
 @keyframes burstAnimation {
-  0% {
-    transform: scale(1) translate(-50%, -50%);
-  }
-  100% {
-    transform: scale(1.5) translate(-35%, -35%);
-    opacity: 0;
-  }
+    0% {
+        transform: scale(1) translate(-50%, -50%);
+    }
+    100% {
+        transform: scale(1.5) translate(-35%, -35%);
+        opacity: 0;
+    }
 }
 
 /* 이미지가 폭포처럼 흐르는 애니메이션 키프레임 */
 @keyframes flowingWaterfall {
-  0% {
-    opacity: 0; /* 처음에는 보이지 않음 */
-    transform: translateY(-50%); /* 위에서 아래로 이동 */
-  }
-  40% {
-    opacity: 1; /* 절반 지점에서 나타남 */
-  }
-  100% {
-    opacity: 0; /* 끝에서 다시 사라짐 */
-    transform: translateY(50%); /* 아래로 이동 */
-  }
+    0% {
+        opacity: 0; /* 처음에는 보이지 않음 */
+        transform: translateY(-50%); /* 위에서 아래로 이동 */
+    }
+    40% {
+        opacity: 1; /* 절반 지점에서 나타남 */
+    }
+    100% {
+        opacity: 0; /* 끝에서 다시 사라짐 */
+        transform: translateY(50%); /* 아래로 이동 */
+    }
 }
 
 /* 이미지 스타일 */
 .waterfall {
-  position: absolute;
-  top: 100px;
-  transform: translateX(0);
-  width: 500px;
-  height: 500px;
-  background-image: url("img/waterfall.png"); /* 이미지 경로 */
-  background-size: cover;
-  animation: flowingWaterfall 2.5s linear; /* 이미지가 폭포처럼 흐르는 애니메이션 적용 */
-  opacity: 0; /* 처음에는 보이지 않도록 설정 */
-  pointer-events: none; /* 기본적으로 클릭 이벤트를 무시함 */
-  user-select: none;
-  margin-left: -40%;
+    position: absolute;
+    top: 100px;
+    transform: translateX(0);
+    width: 500px;
+    height: 500px;
+    background-image: url('img/waterfall.png'); /* 이미지 경로 */
+    background-size: cover;
+    animation: flowingWaterfall 2.5s linear; /* 이미지가 폭포처럼 흐르는 애니메이션 적용 */
+    opacity: 0; /* 처음에는 보이지 않도록 설정 */
+    pointer-events: none; /* 기본적으로 클릭 이벤트를 무시함 */
+    user-select: none;
+    margin-left: -40%;
 }
 
 /* Game box styles */
 .game .display {
-  gap: 20px;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin: 1%;
-  z-index: 1;
+    gap: 20px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    z-index: 1;
 }
 
 .display .letter {
-  width: 10px;
-  font-size: 2rem;
-  /* margin-right: 5px; */
-  text-align: center;
-  font-weight: 600;
-  padding: 30px;
-  padding-bottom: 100px;
-  text-transform: uppercase;
-  border-bottom: 10px solid #ffffff;
-  transform: rotateX(30deg); /* Adding 3D effect */
-  transition: transform 0.4s ease; /* Adding transition effect */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
-  /* Adjusting letter spacing */
+    width: 10px;
+    font-size: 2rem;
+    /* margin-right: 5px; */
+    text-align: center;
+    font-weight: 600;
+    padding: 30px;
+    padding-bottom: 100px;
+    text-transform: uppercase;
+    border-bottom: 10px solid #ffffff;
+    transform: rotateX(30deg); /* Adding 3D effect */
+    transition: transform 0.4s ease; /* Adding transition effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
+    /* Adjusting letter spacing */
 }
 .game {
-  margin-top: 30%;
+    margin-top: 30%;
 }
 
 .display .letter.guessed {
-  gap: 0px;
-  padding: 0px 30px;
-  border-color: transparent;
-  transform: rotateX(0deg); /* Rotate back to original position when guessed */
+    gap: 0px;
+    padding: 0px 30px;
+    border-color: transparent;
+    transform: rotateX(0deg); /* Rotate back to original position when guessed */
 }
 
 .game h4 {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 5px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .game h4 b {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .game .guesses b {
-  color: #ff0000;
+    color: #ff0000;
 }
 
 .game .keyboard {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  justify-content: center;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    justify-content: center;
 }
 
 /* Button styles */
 :where(.modal, .keyboard, .reset) button {
-  color: #2d63a7;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 2rem;
-  font-weight: 600;
-  border-radius: 4px;
-  text-transform: uppercase;
-  background: #f1c164;
+    color: #2d63a7;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: #f1c164;
 
-  padding: 12px 30px;
-  transition: background 0.3s ease; /* Adding transition effect */
-  transform-style: preserve-3d; /* Enable 3D transformation */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
+    padding: 12px 30px;
+    transition: background 0.3s ease; /* Adding transition effect */
+    transform-style: preserve-3d; /* Enable 3D transformation */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adding shadow effect */
 }
 
 .keyboard button {
-  width: calc(100% / 9 - 5px);
-  cursor: url(../assets/pointer.png), auto;
+    width: calc(100% / 9 - 5px);
+    cursor: url(../assets/pointer.png), auto;
 }
 
 .keyboard button[disabled] {
-  pointer-events: none;
-  opacity: 0.6;
+    pointer-events: none;
+    opacity: 0.6;
 }
 
 :where(.modal, .keyboard) button:hover {
-  background: #8286c9;
-  transform: translateY(-3px); /* Adding hover effect */
+    background: #8286c9;
+    transform: translateY(-3px); /* Adding hover effect */
 }
 
 /* Modal */
 
 .modal.show {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.4s 0.4s ease;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.4s 0.4s ease;
 }
 
 .modal .content {
-  padding: 30px;
-  max-width: 420px;
-  width: 100%;
-  border-radius: 10px;
-  background: #fff;
-  text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  cursor: url(../assets/cursor.png), auto;
+    padding: 30px;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: url(../assets/cursor.png), auto;
 }
 
 .modal img {
-  max-width: 130px;
-  margin-bottom: 20px;
+    max-width: 130px;
+    margin-bottom: 20px;
 }
 
 /* .modal img[src="images/victory.gif"] {
@@ -314,134 +312,134 @@ body {
 } */
 
 .modal h4 {
-  font-size: 1.53rem;
+    font-size: 1.53rem;
 }
 
 .modal p {
-  font-size: 1.15rem;
-  margin: 15px 0 30px;
-  font-weight: 500;
+    font-size: 1.15rem;
+    margin: 15px 0 30px;
+    font-weight: 500;
 }
 
 .modal p b {
-  color: #5e63ba;
-  font-weight: 600;
+    color: #5e63ba;
+    font-weight: 600;
 }
 /* .modal img[src="img/victory.png"] {
     margin-left: -10px;
     animation: starAnimation 1s ease-in-out forwards; /* 애니메이션 적용 */
 
 .modal button {
-  padding: 12px 23px;
-  cursor: url(../assets/pointer.png), auto;
+    padding: 12px 23px;
+    cursor: url(../assets/pointer.png), auto;
 }
 
 @media (max-width: 782px) {
-  .container {
-    flex-direction: column;
-    padding: 30px 15px;
-    align-items: center;
-  }
+    .container {
+        flex-direction: column;
+        padding: 30px 15px;
+        align-items: center;
+    }
 
-  /* .hangman-box img {
+    /* .hangman-box img {
         max-width: 200px;
     } */
 
-  .game h4 {
-    font-size: 1rem;
-  }
+    .game h4 {
+        font-size: 1rem;
+    }
 
-  .display .letter {
-    margin-bottom: 35px;
-    font-size: 1.7rem;
-  }
+    .display .letter {
+        margin-bottom: 35px;
+        font-size: 1.7rem;
+    }
 
-  .display .letter.guessed {
-    margin: -35px 0 25px;
-  }
+    .display .letter.guessed {
+        margin: -35px 0 25px;
+    }
 
-  .modal img {
-    max-width: 120px;
-  }
+    .modal img {
+        max-width: 120px;
+    }
 
-  .modal h4 {
-    font-size: 1.45rem;
-  }
+    .modal h4 {
+        font-size: 1.45rem;
+    }
 
-  .modal p {
-    font-size: 1.1rem;
-  }
+    .modal p {
+        font-size: 1.1rem;
+    }
 
-  .modal button {
-    padding: 10px 18px;
-  }
+    .modal button {
+        padding: 10px 18px;
+    }
 }
 
 .victory-image {
-  position: fixed;
-  top: 40%;
-  left: 25%;
-  transform: translate(0, -50%);
-  z-index: 9999;
-  width: 230px;
-  height: 330px;
-  animation: moveRightAndShrink 2s ease-in-out forwards; /* 애니메이션 적용 */
+    position: fixed;
+    top: 40%;
+    left: 25%;
+    transform: translate(0, -50%);
+    z-index: 9999;
+    width: 230px;
+    height: 330px;
+    animation: moveRightAndShrink 2s ease-in-out forwards; /* 애니메이션 적용 */
 }
 
 @keyframes moveRightAndShrink {
-  0% {
-    left: 25; /* 초기 위치: 왼쪽 끝 */
-    transform: translate(0, -50%) scale(1); /* 초기 크기: 원래 크기 */
-  }
-  50% {
-    left: 40%; /* 중간 위치: 오른쪽 중간 */
-    transform: translate(-50%, -50%) scale(1.2); /* 중간 크기: 1.2배 확대 */
-  }
+    0% {
+        left: 25; /* 초기 위치: 왼쪽 끝 */
+        transform: translate(0, -50%) scale(1); /* 초기 크기: 원래 크기 */
+    }
+    50% {
+        left: 40%; /* 중간 위치: 오른쪽 중간 */
+        transform: translate(-50%, -50%) scale(1.2); /* 중간 크기: 1.2배 확대 */
+    }
 
-  70% {
-    left: 60%; /* 최종 위치: 오른쪽 끝 */
+    70% {
+        left: 60%; /* 최종 위치: 오른쪽 끝 */
 
-    transform: translate(-90%, -30%) scale(0.8); /* 최종 크기: 반으로 축소 */
-  }
+        transform: translate(-90%, -30%) scale(0.8); /* 최종 크기: 반으로 축소 */
+    }
 
-  100% {
-    left: 54%; /* 최종 위치: 오른쪽 끝 */
+    100% {
+        left: 54%; /* 최종 위치: 오른쪽 끝 */
 
-    transform: translate(-100%, 85%) scale(0.3); /* 최종 크기: 반으로 축소 */
-  }
+        transform: translate(-100%, 85%) scale(0.3); /* 최종 크기: 반으로 축소 */
+    }
 }
 
 body.fade {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* 메인 페이지로 가는 버튼 및 재시작 버튼 스타일 */
 .play-again-button,
 .main-page-button {
-  padding: 12px 30px;
-  margin-top: 20px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  border-radius: 5px;
-  background-color: #f1c164;
-  color: #2d63a7;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    padding: 12px 30px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: #f1c164;
+    color: #2d63a7;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .play-again-button:hover,
 .main-page-button:hover {
-  background-color: #8286c9;
+    background-color: #8286c9;
 }
 
 .modal-buttons-container button {
-  margin-right: 3px; /* 버튼 사이의 오른쪽 마진 추가 */
+    margin-right: 3px; /* 버튼 사이의 오른쪽 마진 추가 */
 }
 
 .reset {
-  position: absolute;
-  left: 75%;
-  bottom: 90%;
+    position: absolute;
+    left: 75%;
+    bottom: 90%;
 }

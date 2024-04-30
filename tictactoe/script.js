@@ -21,12 +21,17 @@ class TicTacToe {
 
     // board cell을 클릭했을 때
     this.cells.forEach((cell) => {
+      cell.addEventListener("mouseenter", this.cellHoverHandler.bind(this));
+      cell.addEventListener("mouseleave", this.cellLeaveHandler.bind(this));
+      // cell.addEventListener("click", this.cellClickHandler.bind(this));
+    });
+
+    this.cells.forEach((cell) => {
       cell.addEventListener("click", this.cellClickHandler.bind(this));
     });
 
     //게임 시작, 게임 다시 하기 버튼
     this.startButtons.forEach((btn) => {
-      console.log(this.flag + "asfg");
       btn.addEventListener("click", this.startNewGame.bind(this));
     });
 
@@ -132,14 +137,35 @@ class TicTacToe {
     this.playing = false;
     this.gameContainer.classList.add("hide");
   }
+  // 보드 호버 handler
+  cellHoverHandler(e) {
+    const el = e.target;
+    const row = Number(e.target.dataset.row);
+    const col = Number(e.target.dataset.col);
+    if (this.isEmptyCell({ row, col })) {
+      const img = this.player === "X" ? this.xImg : this.oImg;
+      const cloneImg = img.cloneNode(true);
+      cloneImg.classList.add("hover");
+      cloneImg.style.display = "block";
+      el.appendChild(cloneImg);
+    }
+  }
+
+  cellLeaveHandler(e) {
+    const el = e.target;
+    const row = Number(e.target.dataset.row);
+    const col = Number(e.target.dataset.col);
+
+    el.removeChild(el.querySelector(".hover"));
+  }
   // 보드 셀 클릭 handler
   cellClickHandler(e) {
     if (this.playing === false) {
       return;
     }
     const el = e.target;
-    const row = Number(e.target.dataset.row);
-    const col = Number(e.target.dataset.col);
+    const row = Number(el.parentNode.dataset.row);
+    const col = Number(el.parentNode.dataset.col);
 
     if (this.isEmptyCell({ row, col })) {
       this.markCell({ row, col, el });
@@ -253,9 +279,9 @@ class TicTacToe {
     if (this.playing) {
       const img = this.player === "X" ? this.xImg : this.oImg;
       const cloneImg = img.cloneNode(true);
-      el.appendChild(cloneImg);
       // display를 block으로 변경
       cloneImg.style.display = "block";
+      el.parentNode.appendChild(cloneImg);
       // 현재 플레이어 칸 채우기
       this.board[row][col] = this.player;
     }
