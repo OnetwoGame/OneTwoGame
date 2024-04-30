@@ -255,7 +255,7 @@ body {
   color: #2d63a7;
   border: none;
   outline: none;
-  cursor: pointer;
+  cursor: url(../assets/pointer.png), auto;
   font-size: 2rem;
   font-weight: 600;
   border-radius: 4px;
@@ -425,7 +425,7 @@ body.fade {
   color: #2d63a7;
   border: none;
   outline: none;
-  cursor: pointer;
+  cursor: url(../assets/pointer.png), auto;
   transition: background-color 0.3s ease;
 }
 
