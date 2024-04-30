@@ -279,7 +279,7 @@ class TicTacToe {
     if (this.playing) {
       const img = this.player === "X" ? this.xImg : this.oImg;
       const cloneImg = img.cloneNode(true);
-      el.appendChild(cloneImg);
+      el.parentNode.appendChild(cloneImg);
       // display를 block으로 변경
       cloneImg.style.display = "block";
       // 현재 플레이어 칸 채우기
