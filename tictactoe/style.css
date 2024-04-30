@@ -1,7 +1,3 @@
-/* * {
-  border: 2px solid;
-} */
-
 @import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
 
 .jersey-10-regular {
@@ -27,29 +23,13 @@ body {
   width: 100%;
   height: 100%;
 }
-/* .btn-start1 {
-  font-family: inherit;
-  font-size: inherit;
-  border: none;
-  background-color: var(--button-color);
-  padding: 0.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2);
-} */
-/* .btn-start1:focus {
-  animation: scale 0.25s ease-in-out;
-} */
+
 .btn-start {
   font-family: inherit;
   font-size: inherit;
   border: none;
-  /* background-color: var(--button-color); */
-  /* padding: 0.5rem;
-  border-radius: 5px; */
   cursor: url(../assets/pointer.png), auto;
   z-index: 200;
-  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
 .btn-start:focus {
   animation: scale 0.25s ease-in-out;
@@ -58,13 +38,8 @@ body {
   font-family: inherit;
   font-size: inherit;
   border: none;
-  /* background-color: var(--button-color); */
-  /* padding: 0.5rem;
-  border-radius: 5px; */
-  /* cursor: pointer; */
   cursor: url(../assets/pointer.png), auto;
   z-index: 200;
-  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 2px 5px rgba(0, 0, 0, 0.2); */
 }
 .btn-home:focus {
   animation: scale 0.25s ease-in-out;
@@ -85,11 +60,7 @@ body {
   z-index: 0;
   position: relative;
 }
-/* 작은 화면에서 switch 잘림 */
 .switch {
-  /* background-image: url("./img/switch.png");
-  background-size: cover;
-  background-position: center; */
   position: absolute;
   z-index: 100;
   width: 1150px;
@@ -130,15 +101,12 @@ body {
 .board__cell {
   width: 32.7%;
   height: 35%;
-  /* background-color: var(--button-color); */
-  /* border-radius: 5px; */
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: ease-in-out 1s grow;
   cursor: url(../assets/pointer.png), auto;
-  /* box-shadow: 0px 0px 10px rgba(146, 146, 146, 0.2); */
   z-index: 300;
 }
 .border_left {
@@ -168,20 +136,43 @@ body {
   height: 90%;
 }
 
-/* player1,2 img */
+.player-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  left: calc(50% - 560px);
+  bottom: 15%;
+  font-size: 45px;
+}
 
+.player-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  position: absolute;
+  right: 2.5%;
+  top: 50%;
+  font-size: 45px;
+}
+
+/* player1,2 img */
 .player1-full {
   position: absolute;
-  left: calc(50% - 570px);
-  bottom: 20%;
-  width: 12%;
-  /* height: 30%; */
+  left: calc(50% - 560px);
+  bottom: 25%;
+  width: 10%;
+  height: 35%;
 }
 .player2-full {
   position: absolute;
   right: 3.5%;
   width: 10%;
-  top: 15%;
+  height: 40%;
+  top: 10%;
 }
 .result.hide {
   display: none;
