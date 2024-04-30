@@ -14,12 +14,13 @@
   </head>
   <body>
     <script src="const.js"></script>
+    <!-- BGM -->
     <script src="../js/sound.js"></script>
     <div class="overview">
       <div class="background">
         <div class="switch">
           <img src="./img/switch.png" />
-          <!-- feat_3 game start button -->
+          <!-- 게임 시작 버튼 -->
           <button class="btn-start" type="button">
             <img
               src="./img/start_button.png"
@@ -27,12 +28,13 @@
               class="game-button1"
             />
           </button>
+          <!-- 게임기 위 Player 이미지 -->
           <img
             src="./img/hanastar1.png"
             alt="payer1"
             class="image player1-full"
           />
-          <!-- container game hide option 추가 -->
+          <!-- 게임 보드 -->
           <div class="container game hide">
             <div class="board">
               <div
@@ -76,14 +78,14 @@
                 data-row="2"
                 data-col="2"
               ></div>
-              <!-- X 이미지 -->
+              <!-- Player 1 이미지 -->
               <img
                 src="./img/hanastar1_h.png"
                 alt="X"
                 class="player-img"
                 id="x-img"
               />
-              <!-- O 이미지 -->
+              <!-- Player 2 이미지 -->
               <img
                 src="./img/hanastar2_h.png"
                 alt="O"
@@ -92,7 +94,7 @@
               />
             </div>
           </div>
-
+          <!-- 게임기 위 Player 이미지 -->
           <img
             src="./img/hanastar2.png"
             alt="player2"
@@ -106,12 +108,12 @@
                 class="game-button2"
               /></button
           ></a>
+          <!-- 게임 결과 모달 띄우기 -->
           <div class="result hide">
             <p class="result-text"></p>
-            <!-- 모달 띄우기 -->
           </div>
 
-          <!-- 재시작 modal -->
+          <!-- 재시작 모달 -->
           <div class="play-again hide">
             <p class="again-text">Play Again?</p>
             <div class="modal-buttons">
@@ -122,6 +124,7 @@
         </div>
       </div>
     </div>
+    <!-- 틱택토 게임 구현 js 파일 -->
     <script src="script.js"></script>
   </body>
 </html>

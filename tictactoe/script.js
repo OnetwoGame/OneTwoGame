@@ -7,10 +7,8 @@ class TicTacToe {
     this.playing = false;
     //각 칸
     this.cells = document.querySelectorAll(".board__cell");
-    // 시작 버튼
+    // document
     this.startButtons = document.querySelectorAll(".btn-start");
-    //# 안쓰는 코드
-    this.coverContainer = document.querySelector(".cover");
     this.gameContainer = document.querySelector(".game");
     this.playerDisplay = document.querySelector(".player__id");
     this.resultDisplay = document.querySelector(".result");
@@ -37,25 +35,29 @@ class TicTacToe {
       document.querySelector(".play-again").classList.add("hide");
       // resolve를 호출하여 false 반환
     });
-
+    //초기화
     this.init();
   }
 
   init() {
     // x부터 시작
     this.player = "X";
+    // 게임 보드 초기화
     this.board = Array.from({ length: 3 }, () => {
       return Array.from({ length: 3 }, () => null);
     });
+    // 게임 실행
     this.playing = true;
+
     this.cells.forEach((cell) => (cell.textContent = ""));
   }
 
   //game 새로 시작
   startNewGame() {
     console.log(this.flag);
-    //게임 modal 창
-    //만약 이미 게임을 실행했다면?
+    //게임 modal 창]
+    //게임을 재시작했을 경우
+    //만약 이미 게임을 실행했다면 조건문 실행
     if (this.flag === 1) {
       //재시작 modal 띄우기
       this.playAgainDisplay.classList.remove("hide");
@@ -67,24 +69,26 @@ class TicTacToe {
         this.playAgainDisplay.classList.add("hide");
         // 다시 게임을 하지 않는다면?
         this.hidePlayerImages();
+        // 결과창 숨기기
         this.resultDisplay.classList.add("hide");
+        // 게임창 숨김 취소
         this.gameContainer.classList.remove("hide");
+        // 게임 초기화
         this.init();
+        //player1부터 시작 player2의 opacity를 낮추기
         document.querySelector(".player2-full").classList.add("opacity");
 
         this.startButtons.forEach((btn) => {
-          this.flag = 1;
           // 게임 다시시작 버튼
           btn.innerHTML =
             '<img src="./img/restart_button.png" alt="game restart image" class="game-button1">';
         });
       };
 
-      // again button 이벤트 리스너 등록
-
+      // again button 이벤트 리스너 등록 -> 다시 게임을 시작
       this.againButton.addEventListener("click", playAgainHandler);
 
-      // stop button 클릭 시
+      // stop button 클릭 시 -> 다시 시작 취소
       const stopButtonClickHandler = () => {
         console.log("stop game");
         // 모달 창 숨기기
@@ -99,7 +103,7 @@ class TicTacToe {
       return;
     }
 
-    //처음 시작한다면 if문 실행하지 않고 바로 밑 코드부터 실행
+    //처음 시작한다면 if문 실행하지 않고 바로 밑 코드부터 실행 -> flag = 0
     this.hidePlayerImages();
     this.resultDisplay.classList.add("hide");
     this.gameContainer.classList.remove("hide");
@@ -107,51 +111,28 @@ class TicTacToe {
     document.querySelector(".player2-full").classList.add("opacity");
 
     this.startButtons.forEach((btn) => {
+      // 게임 실행되어 flag =1로 변경
       this.flag = 1;
       // 게임 다시시작 버튼
       btn.innerHTML =
         '<img src="./img/restart_button.png" alt="game restart image" class="game-button1">';
     });
   }
-
-  //game 재시작 -> 비동기 처리 에러로 사용 X
-  playAgain() {
-    return new Promise((resolve, reject) => {
-      // "네" 버튼 클릭 시
-      document
-        .querySelector(".again-button")
-        .addEventListener("click", function () {
-          document.querySelector(".play-again").classList.add("hide");
-          // resolve를 호출하여 true 반환
-          resolve(true);
-        });
-
-      // "아니오" 버튼 클릭 시
-      const stopButtonClickHandler = () => {
-        document.querySelector(".play-again").classList.add("hide");
-        // resolve를 호출하여 false 반환
-        resolve(false);
-        // 이벤트 핸들러 제거
-        this.stopButton.removeEventListener("click", stopButtonClickHandler);
-      };
-      this.stopButton.addEventListener("click", stopButtonClickHandler);
-    });
-  }
-
+  // 기존 캐릭터 이미지 div에서 숨김
   hidePlayerImages() {
     const xImg = document.getElementById("x-img");
     const oImg = document.getElementById("o-img");
     xImg.style.display = "none";
     oImg.style.display = "none";
   }
-
+  //게임 종료
   finishGame() {
     this.flag = 1;
+    //플레이 종료
     this.playing = false;
-    // this.coverContainer.classList.remove("hide");
     this.gameContainer.classList.add("hide");
   }
-
+  // 보드 셀 클릭 handler
   cellClickHandler(e) {
     if (this.playing === false) {
       return;
@@ -164,12 +145,13 @@ class TicTacToe {
       this.markCell({ row, col, el });
       if (this.isCurrentPlayerWin()) {
         // 3칸이 이어진 경우 해당 플레이어 승리
+        //현재 플레이어가 X라면
         if (this.player === "X") {
           this.displayText(`Player1 Win!`);
         } else {
           this.displayText(`Player2 Win!`);
         }
-        // this.displayText(`${this.player}의 승리!`);
+        //게임 종료
         this.finishGame();
       } else if (this.isEveryCellMarked()) {
         // 3칸을 잇지 못했지만 모든 칸이 찬 경우 비김
@@ -177,6 +159,7 @@ class TicTacToe {
         this.finishGame();
       } else {
         // 누구도 3칸을 잇지 못하고, 남은 칸이 있는 경우
+        // 턴 변경
         this.changePlayer();
       }
     }
@@ -184,7 +167,7 @@ class TicTacToe {
   // 턴 변경 => 플레이어 변경
   changePlayer() {
     this.player = this.player === "X" ? "O" : "X";
-    // this.playerDisplay.textContent = this.player;
+
     // character 투명도 처리
     if (this.player === "X") {
       // 'X'인 경우
@@ -198,7 +181,7 @@ class TicTacToe {
       document.querySelector(".player2-full").classList.remove("opacity");
     }
   }
-
+  //result modal 표시
   displayText(text) {
     // cover 에 표시
     this.resultDisplay.querySelector(".result-text").textContent = text;
@@ -206,11 +189,11 @@ class TicTacToe {
     this.info.classList.add("blur");
     // console.log(text);
   }
-
+  // 게임 보드에서 비어있는 칸
   isEmptyCell({ row, col }) {
     return this.board[row][col] === null;
   }
-
+  //모든 칸이 채워져 있는지
   isEveryCellMarked() {
     for (let i = 0; i < 3; i++) {
       const row = this.board[i];
@@ -223,6 +206,7 @@ class TicTacToe {
     return true;
   }
 
+  // 현재 플레이어가 승리했는지
   isCurrentPlayerWin() {
     // 3칸이 이어졌는지 확인
     // 가로줄
@@ -260,14 +244,15 @@ class TicTacToe {
     }
     return false;
   }
-
+  // cell에 이미지 채워넣기
   markCell({ row, col, el }) {
     if (this.playing) {
       const img = this.player === "X" ? this.xImg : this.oImg;
       const cloneImg = img.cloneNode(true);
       el.appendChild(cloneImg);
+      // display를 block으로 변경
       cloneImg.style.display = "block";
-
+      // 현재 플레이어 칸 채우기
       this.board[row][col] = this.player;
     }
   }
