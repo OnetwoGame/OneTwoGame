@@ -2,8 +2,8 @@ const TWO_PI = Math.PI * 2;
 const HALF_PI = Math.PI * 0.5;
 
 // canvas settings
-var viewWidth = 600,
-  viewHeight = 400,
+var viewWidth = 1000,
+  viewHeight = 500,
   drawingCanvas = document.getElementById("drawing_canvas"),
   ctx,
   timeStep = 1 / 60;
