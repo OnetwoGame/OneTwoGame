@@ -43,7 +43,7 @@ function validateHangman() {
     }
 
     if (cnt != hangmanActiveCnt) {
-        modal.querySelector('h4').innerText = '선택'; // 모달 제목 변경
+        modal.querySelector('h4').innerText = 'Notice'; // 모달 제목 변경
         modal.querySelector('p').innerHTML = '<b>' + hangmanCntErrorMessage + '</b>'; // 모달 텍스트 변경
 
         // "Play Again" 버튼 추가
@@ -81,7 +81,7 @@ function validateTicTacToe() {
     }
 
     if (cnt != tictactoeActiveCnt) {
-        modal.querySelector('h4').innerText = '선택'; // 모달 제목 변경
+        modal.querySelector('h4').innerText = 'Notice'; // 모달 제목 변경
         modal.querySelector('p').innerHTML = '<b>' + tictactoeCntErrorMessage + '</b>'; // 모달 텍스트 변경
 
         // "Play Again" 버튼 추가
