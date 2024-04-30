@@ -179,6 +179,8 @@ function update() {
         p.update();
       });
       break;
+    case 3:
+      break;
   }
 }
 
@@ -197,13 +199,15 @@ function draw() {
         p.draw();
       });
       break;
+    case 3:
+      break;
   }
 }
 
-window.onload = function () {
-  initDrawingCanvas();
-  requestAnimationFrame(loop);
-};
+// window.onload = function () {
+//   initDrawingCanvas();
+//   requestAnimationFrame(loop);
+// };
 
 function loop() {
   update();
@@ -224,6 +228,26 @@ function loop() {
 
   requestAnimationFrame(loop);
 }
+// function loop() {
+//   update();
+//   draw();
+
+//   if (phase === 0 && loader.complete) {
+//     phase = 1;
+//   } else if (phase === 1 && exploader.complete) {
+//     phase = 2;
+//   } else if (phase === 2 && checkParticlesComplete()) {
+//     // 이 부분을 수정하여 한 번만 폭죽이 터지도록 설정
+//     phase = 3;
+//   }
+
+//   // 루프가 한 번만 실행되도록 설정
+//   if (phase === 3) {
+//     return;
+//   }
+
+//   requestAnimationFrame(loop);
+// }
 
 function checkParticlesComplete() {
   for (var i = 0; i < particles.length; i++) {
