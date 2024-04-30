@@ -2,8 +2,8 @@ const TWO_PI = Math.PI * 2;
 const HALF_PI = Math.PI * 0.5;
 
 // canvas settings
-var viewWidth = 512,
-  viewHeight = 350,
+var viewWidth = 600,
+  viewHeight = 400,
   drawingCanvas = document.getElementById("drawing_canvas"),
   ctx,
   timeStep = 1 / 60;
@@ -224,6 +224,7 @@ function loop() {
     exploader.reset();
     particles.length = 0;
     createParticles();
+    return;
   }
 
   requestAnimationFrame(loop);

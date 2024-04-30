@@ -146,8 +146,10 @@ class TicTacToe {
       if (this.isCurrentPlayerWin()) {
         // 3칸이 이어진 경우 해당 플레이어 승리
         //현재 플레이어가 X라면
+
         initDrawingCanvas();
         requestAnimationFrame(loop);
+
         if (this.player === "X") {
           this.displayText(`Player1 Win!`);
         } else {
