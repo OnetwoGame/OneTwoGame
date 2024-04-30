@@ -17,13 +17,11 @@
     <script src="const.js"></script>
     <!-- BGM -->
     <script src="../js/sound.js"></script>
-    <!-- 꽃가루 js -->
-    <canvas id="drawing_canvas"></canvas>
+    <script src="./character.js" defer></script>
 
     <div class="overview">
       <div class="background">
         <div class="switch">
-          <!-- 꽃가루 js -->
           <canvas id="drawing_canvas"></canvas>
           <img src="./img/switch.png" />
           <!-- 게임 시작 버튼 -->
@@ -36,6 +34,7 @@
           </button>
           <!-- 게임기 위 Player 이미지 -->
           <img
+            id="player1-full"
             src="./img/hanastar1.png"
             alt="payer1"
             class="image player1-full"
@@ -86,22 +85,23 @@
               ></div>
               <!-- Player 1 이미지 -->
               <img
+                id="x-img"
                 src="./img/hanastar1_h.png"
                 alt="X"
                 class="player-img"
-                id="x-img"
               />
               <!-- Player 2 이미지 -->
               <img
+                id="o-img"
                 src="./img/hanastar2_h.png"
                 alt="O"
                 class="player-img"
-                id="o-img"
               />
             </div>
           </div>
           <!-- 게임기 위 Player 이미지 -->
           <img
+            id="player2-full"
             src="./img/hanastar2.png"
             alt="player2"
             class="image player2-full"
