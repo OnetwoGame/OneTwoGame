@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-<<<<<<< Updated upstream
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -98,71 +98,6 @@
                 alt="O"
                 class="player-img"
               />
-=======
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="./style.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-    </head>
-    <body>
-        <script src="const.js"></script>
-        <!-- BGM -->
-        <script src="../js/sound.js"></script> 
-        <script src="./character.js" defer></script>
-        <div class="overview">
-            <div class="background">
-                <div class="switch">
-                    <img src="./img/switch.png" />
-                    <!-- 게임 시작 버튼 -->
-                    <button class="btn-start" type="button">
-                        <img src="./img/start_button.png" alt="game start image" class="game-button1" />
-                    </button>
-                    <!-- 게임기 위 Player 이미지 -->
-                    <img id="player1-full" src="./img/hanastar1.png" alt="payer1" class="image player1-full" />
-                    <!-- 게임 보드 -->
-                    <div class="container game hide">
-                        <div class="board">
-                            <div class="board__cell border_bottom" data-row="0" data-col="0"></div>
-                            <div class="board__cell border_left border_bottom" data-row="0" data-col="1"></div>
-                            <div class="board__cell border_left border_bottom" data-row="0" data-col="2"></div>
-                            <div class="board__cell border_bottom" data-row="1" data-col="0"></div>
-                            <div class="board__cell border_left border_bottom" data-row="1" data-col="1"></div>
-                            <div class="board__cell border_left border_bottom" data-row="1" data-col="2"></div>
-                            <div class="board__cell" data-row="2" data-col="0"></div>
-                            <div class="board__cell border_left" data-row="2" data-col="1"></div>
-                            <div class="board__cell border_left" data-row="2" data-col="2"></div>
-                            <!-- Player 1 이미지 -->
-                            <img id="x-img" src="./img/hanastar1_h.png" alt="X" class="player-img" />
-                            <!-- Player 2 이미지 -->
-                            <img id="o-img" src="./img/hanastar2_h.png" alt="O" class="player-img" />
-                        </div>
-                    </div>
-                    <!-- 게임기 위 Player 이미지 -->
-                    <img id="player2-full" src="./img/hanastar2.png" alt="player2" class="image player2-full" />
-                    <a href="../index.html">
-                        <button class="btn-home" type="button" onclick="playTinyButtonSound()">
-                            <img src="./img/home_button.png" alt="game home image" class="game-button2" /></button
-                    ></a>
-                    <!-- 게임 결과 모달 띄우기 -->
-                    <div class="result hide">
-                        <p class="result-text"></p>
-                    </div>
-
-                    <!-- 재시작 모달 -->
-                    <div class="play-again hide">
-                        <p class="again-text">Play Again?</p>
-                        <div class="modal-buttons">
-                            <button class="again-button">YES</button>
-                            <button class="stop-button">NO</button>
-                        </div>
-                    </div>
-                </div>
->>>>>>> Stashed changes
             </div>
           </div>
           <!-- 게임기 위 Player 이미지 -->

@@ -211,7 +211,7 @@ for (let i = 97; i <= 122; i++) {
   kd.appendChild(button);
   button.addEventListener("click", (e) => {
     ig(e.target, String.fromCharCode(i));
-    playBlopSound()
+    playBlopSound();
   }); // 클릭 시 ig 함수 호출
 }
 
