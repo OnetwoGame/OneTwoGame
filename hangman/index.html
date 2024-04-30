@@ -4,17 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hangman Game</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <!-- 외부 스타일 시트 링크 -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- 상수 스크립트 로드 -->
     <script src="const.js"></script>
-      <script src="../js/sound.js"></script>
+    <script src="../const.js"></script>
+    <!-- 비동기로 스크립트 로드 -->
+    <script src="script.js" defer></script>
+    <!-- 오디오 재생을 위한 Howler.js 라이브러리 CDN 링크 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <!-- 사운드 효과 스크립트 로드 -->
+    <script src="../js/sound.js"></script>
+    <!-- 페이드 효과 스크립트 로드 -->
     <script src="../js/fade.js" defer></script>
     <script src="./character.js" defer></script>
+    <!-- Google 폰트 링크 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
-
-    <!-- <a href="index.html" class="main-page-link">Go to Main Page</a> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
@@ -31,16 +38,6 @@
              <p>The correct word was: <b></b></p>
         </div>
     </div> 
-<!-- 
-    <div class="modal">
-        <div class="content">
-            <img src="img/victory.png" alt="victory-image" style=" animation: starAnimation 1s ease-in-out forwards;">
-            <h4>Congrats!! </h4>
-            <p>You found the word: <b></b></p>
-            <button class="play-again">Play Again</button>
-        </div>
-    </div> -->
-
     <div class="modal">
       <div class="content">
         <h4>Congrats!!</h4>
@@ -48,10 +45,6 @@
         <button class="play-again">Play Again</button>
       </div>
     </div>
-
-    <!-- <div class="hangman-box">
-        <img src="images/hangman-0.svg" draggable="false" alt="hangman-img">
-    </div> -->
     <div class="container">
         <div class="hangman-box" id="new">
             <img id = "hangman" src="img/hangman-0.jpg" draggable="false" alt="hangman-img">
@@ -67,14 +60,11 @@
         <div class="wrap">
           <div class="wave-box">
             <div class="wave"></div>
-            <div class="wave layer_1"></div>
           </div>
           
         </div>
       </div>
 
-      <!-- <div class="waterballon-box">
-            <img src="img/hangman-0.svg" draggable="false" alt="waterballon-img">
-        </div> -->
+      
   </body>
 </html>

@@ -33,6 +33,7 @@ const modal = document.querySelector('.modal'); // 모달
 
 // 행맨 캐릭터 수 검증
 function validateHangman() {
+    playTinyButtonSound();
     var cnt = 0;
 
     for (const characterKey in characterList) {
@@ -71,6 +72,7 @@ function validateHangman() {
 
 // 틱택토 캐릭터 수 검증
 function validateTicTacToe() {
+    playTinyButtonSound();
     var cnt = 0;
 
     for (const characterKey in characterList) {
