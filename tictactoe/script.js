@@ -284,6 +284,7 @@ class TicTacToe {
       cloneImg.style.display = "block";
       // 현재 플레이어 칸 채우기
       this.board[row][col] = this.player;
+      console.log(this.board[row][col]);
     }
   }
 }

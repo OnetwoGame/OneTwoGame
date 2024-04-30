@@ -1,129 +1,155 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
-        />
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
 
-        <!-- 타이틀 -->
-        <title>OneTwoGame</title>
+    <!-- 타이틀 -->
+    <title>OneTwoGame</title>
 
-        <!-- 폰트 가져오기  -->
-        <link
-            rel="preconnect"
-            href="
+    <!-- 폰트 가져오기  -->
+    <link
+      rel="preconnect"
+      href="
         https://fonts.googleapis.com"
-        />
-        <link
-            rel="preconnect"
-            href="
+    />
+    <link
+      rel="preconnect"
+      href="
         https://fonts.gstatic.com"
-            crossorigin
-        />
-        <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet" />
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- css 가져오기 -->
-        <link rel="stylesheet" href="./css/style.css" />
-    </head>
-    <body class="fade">
-        <!-- js 추가 -->
-        <script src="./js/const.js"></script>
-        <script src="./js/sound.js"></script>
-        <script src="./js/app.js" defer></script>
-        <script src="./js/init.js"></script>
+    <!-- css 가져오기 -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="fade">
+    <!-- js 추가 -->
+    <script src="./js/const.js"></script>
+    <script src="./js/sound.js"></script>
+    <script src="./js/app.js" defer></script>
+    <script src="./js/init.js"></script>
 
-        <!-- 모달 -->
-        <div class="modal">
-            <div class="content">
-                <h4>Game Over!</h4>
-                <p>The correct word was: <b></b></p>
-            </div>
+    <!-- 모달 -->
+    <div class="modal">
+      <div class="content">
+        <h4>Game Over!</h4>
+        <p>The correct word was: <b></b></p>
+      </div>
+    </div>
+
+    <!-- 메인 -->
+    <div class="movewrap">
+      <!-- 서브 -->
+      <div class="sub">
+        <div class="logo">
+          <img src="./assets/logo.png" />
         </div>
-
-        <!-- 메인 -->
-        <div class="movewrap">
-            <!-- 서브 -->
-            <div class="sub">
-                <div class="logo">
-                    <img src="./assets/logo.png" />
-                </div>
-                <div class="button">
-                    <span data-tooltip="Please choose one character">
-                        <img id="hangman" src="./assets/행맨버튼.png" onclick="validateHangman()" />
-                    </span>
-                    <span data-tooltip="Please choose two characters">
-                        <img id="tictactoe" src="./assets/틱택토버튼.png" onclick="validateTicTacToe()" />
-                    </span>
-                </div>
-            </div>
-
-            <!-- 캐릭터들 -->
-            <div class="characters">
-                <ul>
-                    <li>
-                        <img id="starMan" class="character" src="./assets/별돌이.png" onclick="activeToggle(starMan)" />
-                    </li>
-                    <li>
-                        <img
-                            id="starFriend"
-                            class="character"
-                            src="./assets/별벗.png"
-                            onclick="activeToggle(starFriend)"
-                        />
-                    </li>
-                    <li>
-                        <img
-                            id="starBunch"
-                            class="character"
-                            src="./assets/별송이.png"
-                            onclick="activeToggle(starBunch)"
-                        />
-                    </li>
-                    <li>
-                        <img
-                            id="starNuri"
-                            class="character"
-                            src="./assets/별누리.png"
-                            onclick="activeToggle(starNuri)"
-                        />
-                    </li>
-                    <li>
-                        <img
-                            id="starGeneral"
-                            class="character"
-                            src="./assets/별장군.png"
-                            onclick="activeToggle(starGeneral)"
-                        />
-                    </li>
-                    <li>
-                        <img
-                            id="starSpring"
-                            class="character"
-                            src="./assets/별봄이.png"
-                            onclick="activeToggle(starSpring)"
-                        />
-                    </li>
-                    <li>
-                        <img id="starPro" class="character" src="./assets/별프로.png" onclick="activeToggle(starPro)" />
-                    </li>
-                    <li>
-                        <img id="starNim" class="character" src="./assets/별님이.png" onclick="activeToggle(starNim)" />
-                    </li>
-                    <li>
-                        <img
-                            id="starWoong"
-                            class="character"
-                            src="./assets/별웅이.png"
-                            onclick="activeToggle(starWoong)"
-                        />
-                    </li>
-                </ul>
-            </div>
-
-            <!-- 움직이는 배경 -->
-            <div class="moving"></div>
+        <div class="button">
+          <span data-tooltip="Please choose one character">
+            <img
+              id="hangman"
+              src="./assets/행맨버튼.png"
+              onclick="validateHangman()"
+            />
+          </span>
+          <span data-tooltip="Please choose two characters">
+            <img
+              id="tictactoe"
+              src="./assets/틱택토버튼.png"
+              onclick="validateTicTacToe()"
+            />
+          </span>
         </div>
-    </body>
+      </div>
+
+      <!-- 캐릭터들 -->
+      <div class="characters">
+        <ul>
+          <li>
+            <img
+              id="starMan"
+              class="character"
+              src="./assets/별돌이.png"
+              onclick="activeToggle(starMan)"
+            />
+          </li>
+          <li>
+            <img
+              id="starFriend"
+              class="character"
+              src="./assets/별벗.png"
+              onclick="activeToggle(starFriend)"
+            />
+          </li>
+          <li>
+            <img
+              id="starBunch"
+              class="character"
+              src="./assets/별송이.png"
+              onclick="activeToggle(starBunch)"
+            />
+          </li>
+          <li>
+            <img
+              id="starNuri"
+              class="character"
+              src="./assets/별누리.png"
+              onclick="activeToggle(starNuri)"
+            />
+          </li>
+          <li>
+            <img
+              id="starGeneral"
+              class="character"
+              src="./assets/별장군.png"
+              onclick="activeToggle(starGeneral)"
+            />
+          </li>
+          <li>
+            <img
+              id="starSpring"
+              class="character"
+              src="./assets/별봄이.png"
+              onclick="activeToggle(starSpring)"
+            />
+          </li>
+          <li>
+            <img
+              id="starPro"
+              class="character"
+              src="./assets/별프로.png"
+              onclick="activeToggle(starPro)"
+            />
+          </li>
+          <li>
+            <img
+              id="starNim"
+              class="character"
+              src="./assets/별님이.png"
+              onclick="activeToggle(starNim)"
+            />
+          </li>
+          <li>
+            <img
+              id="starWoong"
+              class="character"
+              src="./assets/별웅이.png"
+              onclick="activeToggle(starWoong)"
+            />
+          </li>
+        </ul>
+      </div>
+
+      <!-- 움직이는 배경 -->
+      <div class="moving"></div>
+    </div>
+  </body>
 </html>
