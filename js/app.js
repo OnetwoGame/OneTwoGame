@@ -24,6 +24,9 @@ function activeToggle(characterKey) {
         characterImg.classList.add(activeClass);
         character.active = true;
     }
+
+    // 세션에 추가
+    sessionStorage.setItem(characterKey, character.active);
 }
 
 // 행맨 캐릭터 수 검증
