@@ -24,5 +24,10 @@ const musicURL = './assets/main_bgm.mp3';
 
 const keyDown = 'keydown';
 
+const blopSoundURL = "./assets/blop.mp3";
+const clickSoundURL = "./assets/victory.mp3";
+const TinyButtonSoundURL = "./assets/Tiny_Button.mp3";
+const popUpSoundURL = "./assets/Pop_up.mp3";
+
 const domContentLoaded = 'DOMContentLoaded';
 const fade = 'fade';

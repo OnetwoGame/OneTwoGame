@@ -28,13 +28,15 @@ class TicTacToe {
 
     this.cells.forEach((cell) => {
       cell.addEventListener("click", this.cellClickHandler.bind(this));
+      cell.addEventListener("click", playPopUpSound.bind(this));
     });
 
     //게임 시작, 게임 다시 하기 버튼
     this.startButtons.forEach((btn) => {
       btn.addEventListener("click", this.startNewGame.bind(this));
+      btn.addEventListener("click", playTinyButtonSound.bind(this));
     });
-
+   
     // modal 창에서 "아니오" 버튼 클릭 시
     this.stopButton.addEventListener("click", () => {
       document.querySelector(".play-again").classList.add("hide");
@@ -91,7 +93,9 @@ class TicTacToe {
       };
 
       // again button 이벤트 리스너 등록 -> 다시 게임을 시작
-      this.againButton.addEventListener("click", playAgainHandler);
+      this.againButton.addEventListener("click", () => {
+        playAgainHandler();
+        playPopUpSound()});     
 
       // stop button 클릭 시 -> 다시 시작 취소
       const stopButtonClickHandler = () => {
@@ -103,7 +107,10 @@ class TicTacToe {
       };
 
       // stop button 이벤트 리스너 등록
-      this.stopButton.addEventListener("click", stopButtonClickHandler);
+      this.stopButton.addEventListener("click", () => {
+        stopButtonClickHandler();
+        playPopUpSound()
+      });
 
       return;
     }
