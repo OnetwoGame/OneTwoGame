@@ -10,34 +10,37 @@
     <script src="const.js"></script>
     <script src="../const.js"></script>
     <!-- 비동기로 스크립트 로드 -->
-    <script src="script.js" defer></script>
+    <script src="./character.js" defer></script>
     <!-- 오디오 재생을 위한 Howler.js 라이브러리 CDN 링크 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <!-- 사운드 효과 스크립트 로드 -->
     <script src="../js/sound.js"></script>
     <!-- 페이드 효과 스크립트 로드 -->
     <script src="../js/fade.js" defer></script>
-    <script src="./character.js" defer></script>
     <!-- Google 폰트 링크 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- 게임 제목 -->
     <h1>Hangman Game</h1>
+    <!-- 게임 재시작을 위한 버튼 -->
     <div class="reset">
-      <button class = "reset-button">reset</button>
+      <button class="reset-button">reset</button>
     </div>
-    
-    
+    <!-- 게임 종료 모달 -->
     <div class="modal">
-        <div class="content">
-            <h4>Game Over!</h4>
-             <p>The correct word was: <b></b></p>
-        </div>
-    </div> 
+      <div class="content">
+        <h4>Game Over!</h4>
+        <p>The correct word was: <b></b></p>
+      </div>
+    </div>
+    <!-- 게임 성공 모달 -->
     <div class="modal">
       <div class="content">
         <h4>Congrats!!</h4>
@@ -45,26 +48,34 @@
         <button class="play-again">Play Again</button>
       </div>
     </div>
+    <!-- 게임 요소들을 포함하는 컨테이너 -->
     <div class="container">
-        <div class="hangman-box" id="new">
-            <img id = "hangman" src="img/hangman-0.jpg" draggable="false" alt="hangman-img">
-        </div>
-        <div class="game">
-            <ul class="display"></ul>
-            <h4 class="guesses" style="font-size: 2rem; color:white">
-                <img src="img/heart.png" style="width: 80px; height: 60px;">
-                <b></b></h4>
-            <div class="keyboard"></div>
-
-      <div class="waterBallon-box">
-        <div class="wrap">
-          <div class="wave-box">
-            <div class="wave"></div>
+      <!-- 행맨 이미지 -->
+      <div class="hangman-box" id="new">
+        <img id="hangman" draggable="false" alt="hangman-img" />
+      </div>
+      <!-- 게임 상태 표시 -->
+      <div class="game">
+        <!-- 맞춘 글자들을 표시하는 목록 -->
+        <ul class="display"></ul>
+        <!-- 목숨(실패 횟수)을 표시하는 부분 -->
+        <h4 class="guesses" style="font-size: 2rem; color: white">
+          <img src="img/heart.png" style="width: 80px; height: 60px" />
+          <b></b>
+        </h4>
+        <!-- 키보드 버튼들을 포함하는 요소 -->
+        <div class="keyboard"></div>
+        <!-- 물풍선 애니메이션 -->
+        <div class="waterBallon-box">
+          <div class="wrap">
+            <div class="wave-box">
+              <div class="wave"></div>
+            </div>
           </div>
-          
         </div>
       </div>
-
-      
+    </div>
+    <!-- 게임 스크립트 -->
+    <script src="script.js"></script>
   </body>
 </html>

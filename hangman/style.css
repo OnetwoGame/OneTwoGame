@@ -38,6 +38,7 @@ body {
   transition-property: opacity;
   cursor: url(../assets/cursor.png), auto;
   /* background-attachment: fixed; */
+  position: relative;
 }
 
 .container {
@@ -74,7 +75,7 @@ body {
 .hangman-box img {
   margin-top: 16%; /* 이미지를 조금 올림 */
   user-select: none;
-  margin-left: -20%;
+  margin-left: -190px;
   max-width: 280px;
   transform: rotateY(20deg);
   transition: transform 0.4s ease;
@@ -89,7 +90,7 @@ body {
 .waterBallon-box {
   margin-top: -18%;
   user-select: none;
-  margin-left: -20%;
+  margin-left: -120px;
   transform: rotateY(20deg);
   transition: transform 0.4s ease;
   position: absolute;
@@ -113,6 +114,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .wave-box {
   width: 98px;
   height: 98px;
@@ -186,7 +188,7 @@ body {
   opacity: 0; /* 처음에는 보이지 않도록 설정 */
   pointer-events: none; /* 기본적으로 클릭 이벤트를 무시함 */
   user-select: none;
-  margin-left: -40%;
+  margin-left: -400px;
 }
 
 /* Game box styles */
@@ -261,7 +263,6 @@ body {
   border-radius: 4px;
   text-transform: uppercase;
   background: #f1c164;
-
   padding: 12px 30px;
   transition: background 0.3s ease; /* Adding transition effect */
   transform-style: preserve-3d; /* Enable 3D transformation */
@@ -278,7 +279,7 @@ body {
   opacity: 0.6;
 }
 
-:where(.modal, .keyboard) button:hover {
+:where(.modal, .keyboard, .reset) button:hover {
   background: #8286c9;
   transform: translateY(-3px); /* Adding hover effect */
 }
@@ -312,7 +313,7 @@ body {
 } */
 
 .modal h4 {
-  font-size: 1.53rem;
+  font-size: 1.77rem;
 }
 
 .modal p {
@@ -322,6 +323,7 @@ body {
 }
 
 .modal p b {
+  font-size: 1.72rem;
   color: #5e63ba;
   font-weight: 600;
 }
@@ -381,15 +383,26 @@ body {
   left: 25%;
   transform: translate(0, -50%);
   z-index: 9999;
-  width: 230px;
+  width: 200px;
   height: 330px;
   animation: moveRightAndShrink 2s ease-in-out forwards; /* 애니메이션 적용 */
+}
+
+img.victory-image[src="img/hanastar3.png"] {
+  position: fixed;
+  top: 40%;
+  left: 25%;
+  transform: translate(0, -50%);
+  z-index: 9999;
+  width: 200px;
+  height: 150px;
+  animation: moveRightAndShrink2 2s ease-in-out forwards;
 }
 
 @keyframes moveRightAndShrink {
   0% {
     left: 25; /* 초기 위치: 왼쪽 끝 */
-    transform: translate(0, -50%) scale(1); /* 초기 크기: 원래 크기 */
+    transform: translate(-50%, -50%) scale(0.7); /* 초기 크기: 원래 크기 */
   }
   50% {
     left: 40%; /* 중간 위치: 오른쪽 중간 */
@@ -403,9 +416,30 @@ body {
   }
 
   100% {
-    left: 54%; /* 최종 위치: 오른쪽 끝 */
-
+    left: 55%; /* 최종 위치: 오른쪽 끝 ----> 최종위치*/
     transform: translate(-100%, 85%) scale(0.3); /* 최종 크기: 반으로 축소 */
+  }
+}
+
+@keyframes moveRightAndShrink2 {
+  0% {
+    left: 25; /* 초기 위치: 왼쪽 끝 */
+    transform: translate(-50%, -50%) scale(0.7); /* 초기 크기: 원래 크기 */
+  }
+  50% {
+    left: 40%; /* 중간 위치: 오른쪽 중간 */
+    transform: translate(-50%, -50%) scale(1.2); /* 중간 크기: 1.2배 확대 */
+  }
+
+  70% {
+    left: 60%; /* 최종 위치: 오른쪽 끝 */
+
+    transform: translate(-90%, -30%) scale(0.8); /* 최종 크기: 반으로 축소 */
+  }
+
+  100% {
+    left: 55%; /* 최종 위치: 오른쪽 끝 ----> 최종위치*/
+    transform: translate(-100%, 400px) scale(0.3); /* 최종 크기: 반으로 축소 */
   }
 }
 
@@ -449,4 +483,75 @@ ul {
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.23);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.hangman-box img[src="./img/hanastar1.png"],
+.hanastar1 {
+  right: 900px;
+  bottom: 370px;
+}
+
+.hangman-box img[src="./img/hanastar4.png"],
+.hanastar4 {
+  padding-top: 40px;
+  padding-left: 15px;
+}
+
+.hangman-box img[src="./img/hanastar5.png"],
+.hanastar5 {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.hangman-box img[src="./img/hanastar6.png"],
+.hanastar6 {
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.hangman-box img[src="./img/hanastar7.png"],
+.hanastar7 {
+  padding-left: 15px;
+}
+
+.hangman-box img[src="./img/hanastar8.png"],
+.hanastar8 {
+  padding-top: 13px;
+}
+
+.hangman-box img[src="./img/hanastar9.png"],
+.hanastar9 {
+  padding-top: 25px;
+  padding-left: 10px;
+}
+
+img[src="img/failhanastar2.png"] {
+  margin-top: 120px;
+}
+
+.splitting .char {
+  animation: slide-in 1s cubic-bezier(0.17, 0.84, 0.4, 1.49) both;
+  animation-delay: calc(30ms * var(--char-index));
+}
+
+@keyframes slide-in {
+  0% {
+    transform: scale(2) rotate(60deg);
+    opacity: 0;
+  }
+}
+@keyframes bump-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+particule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  box-shadow: 1px 1px 4px #f75d6a;
 }

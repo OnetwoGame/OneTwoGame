@@ -259,3 +259,21 @@ body.fade {
   padding: 12px 23px;
   cursor: url(../assets/pointer.png), auto;
 }
+
+/* 리스타트 버튼 스타일 */
+.modal-buttons-container .restart-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ca2276;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* 리스타트 버튼에 호버 효과 */
+.modal-buttons-container .restart-button:hover {
+  background-color: #5971ea;
+}

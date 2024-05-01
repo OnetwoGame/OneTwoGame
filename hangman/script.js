@@ -6,11 +6,23 @@ const wi = document.querySelector(".waterBallon-box img"); // 매달린 사람 �
 const gm = document.querySelector(".modal"); // 게임 종료 모달
 const pb = gm.querySelector("button"); // "Play Again" 버튼
 const victory = document.querySelector(".new");
-
 const balloon = document.querySelector(".wrap"); // 물풍선
 const balloonBox = document.querySelector(".waterBallon-box");
 const waveBox = document.querySelector(".wave-box");
 
+var characterList = {
+  starBunch: { fileName: "hanastar1.png" },
+  starMan: { fileName: "hanastar2.png" },
+  starFriend: { fileName: "hanastar3.png" },
+  starNuri: { fileName: "hanastar4.png" },
+  starSpring: { fileName: "hanastar5.png" },
+  starGeneral: { fileName: "hanastar6.png" },
+  starPro: { fileName: "hanastar7.png" },
+  starNim: { fileName: "hanastar8.png" },
+  starWoong: { fileName: "hanastar9.png" },
+};
+
+console.log(hi);
 // 메인 페이지로 이동
 const goToMainPage = () => {
   window.location.href = "../index.html";
@@ -34,6 +46,27 @@ const wl = [
   "plum",
   "fig",
   "papaya",
+  "table",
+  "chair",
+  "brush",
+  "river",
+  "snake",
+  "paper",
+  "smile",
+  "queen",
+  "clock",
+  "laugh",
+  "happy",
+  "ocean",
+  "stone",
+  "horse",
+  "plant",
+  "mouse",
+  "eagle",
+  "water",
+  "guitar",
+  "monkey",
+  "donkey",
 ];
 
 // 게임 변수 초기화
@@ -42,12 +75,23 @@ let cl = []; // 맞춘 글자들을 저장하는 배열
 let wc; // 틀린 추측 횟수
 const mg = 6; // 최대 틀린 추측 횟수
 
+// 세션 스토리지에서 파일 가져오기
+const filename = (function getSelectedCharacter() {
+  for (const characterKey in characterList) {
+    const item = sessionStorage.getItem(characterKey);
+    if (item == "true") {
+      let character = characterList[characterKey];
+      return character.fileName;
+    }
+  }
+})();
+
 // 게임 초기화 함수
 const rg = () => {
   // 게임 변수 및 UI 요소 초기화
   cl = [];
   wc = 0;
-  hi.src = "img/hangman-0.png"; // 초기 이미지
+  // hi.src = "./img" + filename; // 초기 이미지/
   gt.innerText = `${wc} / ${mg}`; // 추측 횟수 표시
   // 현재 단어를 글자 하나씩 나눠서 단어 표시 영역에 추가
   wd.innerHTML = cw
@@ -88,8 +132,69 @@ const go = (iv) => {
     victorySound.play(); // 성공했을 때 음악 재생
     pauseBackgroundSound(); // 배경음악 일시정지
 
+    let particles = [];
+    const colors = ["#eb6383", "#fa9191", "#ffe9c5", "#b4f2e1"];
+
+    // 파티클을 생성하고 초기화하는 함수
+    function pop() {
+      // 150개의 파티클 생성
+      for (let i = 0; i < 150; i++) {
+        const p = document.createElement("particule");
+        // 초기 위치 설정
+        p.x = window.innerWidth * 0.5;
+        p.y = window.innerHeight + Math.random() * window.innerHeight * 0.3;
+        // 초기 속도 설정
+        p.vel = {
+          x: (Math.random() - 0.5) * 10,
+          y: Math.random() * -20 - 15,
+        };
+        // 질량 설정
+        p.mass = Math.random() * 0.2 + 0.8;
+        // 생성된 파티클 요소 스타일 설정
+        p.style.transform = `translate(${p.x}px, ${p.y}px)`;
+        const size = Math.random() * 15 + 5;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        // 파티클을 문서에 추가
+        document.body.appendChild(p);
+        // 생성된 파티클을 배열에 추가
+        particles.push(p);
+      }
+    }
+
+    // 애니메이션 렌더링 함수
+    function render() {
+      // 모든 파티클에 대해 반복
+      for (let i = particles.length - 1; i--; i > -1) {
+        const p = particles[i];
+        // 파티클 위치 업데이트
+        p.style.transform = `translate3d(${p.x}px, ${p.y}px, 1px)`;
+        p.x += p.vel.x;
+        p.y += p.vel.y;
+        // 중력 적용
+        p.vel.y += 0.5 * p.mass;
+        // 화면을 벗어난 파티클 제거
+        if (p.y > window.innerHeight * 2) {
+          p.remove();
+          particles.splice(i, 1);
+        }
+      }
+      // 다음 프레임 요청하여 애니메이션 반복
+      requestAnimationFrame(render);
+    }
+
+    // 폭죽 효과 시작
+    pop();
+    // 지정 시간 지난 후에 애니메이션 렌더링 시작
+    window.setTimeout(render, 500);
+
     const victoryImg = document.createElement("img");
-    victoryImg.src = "img/victory.png";
+    if (filename === "hanastar2.png") {
+      victoryImg.src = "img/victoryhanastar2.png";
+    } else {
+      victoryImg.src = "img/" + filename; //"img/victory.png";
+    }
     victoryImg.className = "victory-image";
     document.body.appendChild(victoryImg);
 
@@ -104,8 +209,9 @@ const go = (iv) => {
       showGameOverModal({ iv, mt }); // 모달을 표시하는 함수 호출
     }, 3000); // 5초 후에 실행
   } else {
-    hi.src = "img/hangman-2.png"; // 실패시 별돌이 이미지
-    hi.style.marginTop = "13%";
+    if (filename === "hanastar2.png") {
+      hi.src = "img/failhanastar2.png";
+    }
 
     failSound.play(); // 성공했을 때 음악 재생
     pauseBackgroundSound(); // 배경음악 일시정지
@@ -144,6 +250,14 @@ const showGameOverModal = ({ iv, mt }) => {
   gm.classList.add("show"); // 모달 창 보이기
 };
 
+// 이미지에 맞는 클래스를 결정합니다.
+const changeImage = function (newSrc) {
+  hi.src = newSrc;
+  const fileName = newSrc.substring(newSrc.lastIndexOf("/") + 1);
+  const newClass = fileName.replace("sad", "").replace(".png", "");
+  hi.className = newClass;
+};
+
 // 게임 초기화 함수
 const ig = (button, clickedLetter) => {
   // 현재 단어가 정의되었는지 확인
@@ -165,13 +279,15 @@ const ig = (button, clickedLetter) => {
   } else {
     // 틀린 추측 횟수 증가 물풍선 크기 증가로 이미지 변경
     wc++;
-    hi.src = `img/hangman-1.png`;
-    hi.style.marginTop = "14%";
+    const newImageURL = "./img/sad" + filename;
+    changeImage(newImageURL);
     if (wc <= 5) {
       setTimeout(() => {
-        hi.src = "img/hangman-0.png";
-        hi.style.marginTop = "16%";
+        const newImageURL = "./img/" + filename;
+        changeImage(newImageURL);
       }, 700);
+    }
+    if (wc <= 5) {
       var newWidth = 98 + wc * 40; // 물풍선 크기 증가
       var newHeight = 150 + wc * 60;
       balloon.style.width = newWidth + "px";
